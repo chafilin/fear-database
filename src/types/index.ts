@@ -1,6 +1,6 @@
 export type Ghost = {
-    name: string;
-    description: string;
-    tags: string[];
-    image: string | undefined;
-}
+  name: string;
+  description: string;
+  tags: string[];
+  image: string | undefined;
+};

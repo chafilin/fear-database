@@ -7,7 +7,7 @@ export default function Home() {
       <h1>БИПЯ</h1>
       <h2>Бюро Исследований Паранормальных Явлений</h2>
       <div className={styles.linklist}>
-        <Link href="/search">Поиск</Link>
+        <Link href="/ghosts">Призраки</Link>
         <Link href="/connection">Связь</Link>
         <Link href="/logs">Логи</Link>
       </div>

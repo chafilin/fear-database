@@ -1,14 +1,10 @@
 import React from "react";
-import {index} from "@/helpers/algoliasearch";
-import { on } from "events";
-import { Ghost } from "@/types";
-
 
 type SearchProps = {
     onSubmit: (search: string) => void;
 }
 
-export const Search = ({onSubmit}: SearchProps) => {
+export const SearchBar = ({onSubmit}: SearchProps) => {
 
     const [search, setSearch] = React.useState<string>('');
 

@@ -1,29 +1,29 @@
-import React from "react";
+import React, { use, useEffect, useState } from "react";
 import useSWR from 'swr';
 import { Ghost } from "@/types";
 import { useRouter } from 'next/router'
 import Link from 'next/link';
-
-import {fetcher} from '@/helpers/fetcher';
+import {index} from '@/helpers/algoliasearch';
 
 function Page() {
     const router = useRouter()
 
-    const {data: response, error, isLoading} = useSWR('/api/staticdata', fetcher);
+    const [ghost, setGhost] = useState<Ghost>();
 
-    //Handle the error state
-    if (error) return <div>Failed to load</div>;
-    //Handle the loading state
-    if (isLoading) return <div>Loading...</div>;
-    let data: Ghost[] = JSON.parse(response);
+    useEffect(() => {
+        if (router.query.name) {
+            index.search<Ghost>(router.query.name as string).then(({ hits }) => {
+                setGhost(hits[0]);
+            });
+        }
+    }, [router.query.name]);
 
-    const ghost = data.find((item) => item.name === router.query.name);
     if (ghost === undefined ){
-        return <div>Failed to load</div>;
+        return <div>Loading...</div>;
     }
     return (
         <div>
-            <Link href="/">Back</Link>
+            <Link href="/search">Back</Link>
             <h1>{ghost.name}</h1>
             <p>{ghost.description}</p>
             <ul>

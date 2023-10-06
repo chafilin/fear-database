@@ -1,9 +1,9 @@
+"use client";
 import React, { useEffect } from "react";
 import styles from "./logs.module.css";
 import Link from "next/link";
 import { Log } from "@/types";
 import { deleteLog, getLogs, postLog } from "@/firebase/log";
-import { set } from "firebase/database";
 
 export default function Logs() {
   const [logs, setLogs] = React.useState<Log[]>([]);

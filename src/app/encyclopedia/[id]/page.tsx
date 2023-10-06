@@ -1,14 +1,15 @@
+"use client";
 import { getEncyclopediaPost } from "@/firebase/encyclopedia";
 import { EncyclopaediaPost } from "@/types";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useParams } from "next/navigation";
 import React, { useEffect } from "react";
 
 const Back = () => <Link href="/encyclopedia">Назад</Link>;
 
 const EncyclopaediaPost = () => {
-  const router = useRouter();
-  const { id } = router.query;
+  const params = useParams();
+  const { id } = params;
 
   const [encyclopedia, setEncyclopedia] =
     React.useState<EncyclopaediaPost | null>(null);

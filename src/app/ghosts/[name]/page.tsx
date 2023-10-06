@@ -1,31 +1,38 @@
-import React, { use, useEffect, useState } from "react";
-import useSWR from "swr";
+"use client";
+import React, { useEffect, useState } from "react";
 import { Ghost } from "@/types";
-import { useRouter } from "next/router";
+import { useParams } from "next/navigation";
 import Link from "next/link";
-import { index } from "@/helpers/algoliasearch";
+
 import { getGhost } from "@/firebase/ghosts";
 
+const Back = () => <Link href="/ghosts">Назад</Link>;
+
 function Page() {
-  const router = useRouter();
+  const params = useParams();
 
   const [ghost, setGhost] = useState<Ghost>();
 
   useEffect(() => {
-    if (router.query.name) {
-      getGhost(router.query.name as string).then((ghost) => {
+    if (params.name) {
+      getGhost(params.name as string).then((ghost) => {
         setGhost(ghost);
       });
     }
-  }, [router.query.name]);
+  }, [params.name]);
 
   if (ghost === undefined) {
-    return <div>Загрузка...</div>;
+    return (
+      <div>
+        <Back />
+        <div>Загрузка...</div>
+      </div>
+    );
   }
 
   return (
     <div>
-      <Link href="/ghosts">Back</Link>
+      <Back />
       <h1>{ghost.name}</h1>
       <p>{ghost.description}</p>
       <p>{ghost.influence}</p>

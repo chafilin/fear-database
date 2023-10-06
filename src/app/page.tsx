@@ -1,8 +1,8 @@
 import Link from "next/link";
-import styles from "./index.module.css";
-import postGhosts from "@/firebase/data/syncData";
+import styles from "./page.module.css";
+import RootLayout from "@/app/layout";
 
-export default function EncyclopaediaList() {
+export default function Home() {
   return (
     <div className={styles.root}>
       <h1>БИПЯ</h1>

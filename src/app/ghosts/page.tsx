@@ -1,9 +1,12 @@
+"use client";
 import React, { use, useEffect } from "react";
 import { Answer, Ghost } from "@/types";
 import { Questions } from "@/components/questions";
 import styles from "./index.module.css";
 import Link from "next/link";
 import { getGhosts } from "@/firebase/ghosts";
+import RootLayout from "@/app/layout";
+import { client } from "@/helpers/algoliasearch";
 
 export default function Ghosts() {
   const [filtered, setFiltered] = React.useState<Ghost[]>([]);
@@ -29,7 +32,7 @@ export default function Ghosts() {
   };
 
   return (
-    <div>
+    <RootLayout>
       <div>
         <Link href="/">Главная</Link>
       </div>
@@ -48,6 +51,6 @@ export default function Ghosts() {
           ))}
         </div>
       </div>
-    </div>
+    </RootLayout>
   );
 }

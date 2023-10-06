@@ -1,3 +1,4 @@
+"use client";
 import { getEncyclopedia } from "@/firebase/encyclopedia";
 import { EncyclopaediaPost } from "@/types";
 import Link from "next/link";

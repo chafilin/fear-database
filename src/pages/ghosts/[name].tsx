@@ -4,6 +4,7 @@ import { Ghost } from "@/types";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { index } from "@/helpers/algoliasearch";
+import { getGhost } from "@/firebase/ghosts";
 
 function Page() {
   const router = useRouter();
@@ -12,25 +13,27 @@ function Page() {
 
   useEffect(() => {
     if (router.query.name) {
-      index.search<Ghost>(router.query.name as string).then(({ hits }) => {
-        setGhost(hits[0]);
+      getGhost(router.query.name as string).then((ghost) => {
+        setGhost(ghost);
       });
     }
   }, [router.query.name]);
 
   if (ghost === undefined) {
-    return <div>Loading...</div>;
+    return <div>Загрузка...</div>;
   }
+
   return (
     <div>
-      <Link href="/search">Back</Link>
+      <Link href="/ghosts">Back</Link>
       <h1>{ghost.name}</h1>
       <p>{ghost.description}</p>
-      <ul>
-        {ghost.tags.map((tag) => (
-          <li key={tag}>{tag}</li>
+      <p>{ghost.influence}</p>
+      <ol>
+        {ghost.bunishment.map((banishment) => (
+          <li key={banishment}>{banishment}</li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 }

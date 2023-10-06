@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./logs.module.css";
 import Link from "next/link";
+import { Log } from "@/types";
+import { deleteLog, getLogs, postLog } from "@/firebase/log";
+import { set } from "firebase/database";
 
 export default function Logs() {
+  const [logs, setLogs] = React.useState<Log[]>([]);
+  const [newLog, setNewLog] = React.useState<string>("");
+  const [needUpdate, setNeedUpdate] = React.useState<boolean>(false);
+
+  useEffect(() => {
+    if (needUpdate) {
+      setNeedUpdate(false);
+      getLogs().then((logs) => {
+        setLogs(logs);
+      });
+    }
+  }, [needUpdate]);
+
+  const handleSubmit = () => {
+    postLog(newLog);
+    setNewLog("");
+    setNeedUpdate(true);
+  };
+
+  const handleDelete = (id: string) => {
+    deleteLog(id);
+    setNeedUpdate(true);
+  };
+
   return (
     <div className={styles.logs}>
       <Link href="/">Главная</Link>
@@ -78,6 +105,23 @@ export default function Logs() {
             Направляемся туда.
           </div>
         </div>
+      </div>
+      <div>
+        {logs.map((log) => (
+          <div key={log.date}>
+            <h1>{log.date}</h1>
+            <div>{log.log}</div>
+            <button onClick={() => handleDelete(log.id)}>Delete</button>
+          </div>
+        ))}
+      </div>
+      <div>
+        <input
+          type="text"
+          value={newLog}
+          onChange={(e) => setNewLog(e.target.value)}
+        />
+        <button onClick={handleSubmit}>Отправить</button>
       </div>
     </div>
   );

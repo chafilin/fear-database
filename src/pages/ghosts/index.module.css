@@ -1,0 +1,12 @@
+.root {
+  display: flex;
+  flex-direction: row;
+}
+
+.filters {
+  flex: 1;
+}
+
+.feed {
+  flex: 1;
+}

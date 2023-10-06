@@ -4,16 +4,8 @@ import { EncyclopaediaPost } from "@/types";
 import Link from "next/link";
 import React, { useEffect } from "react";
 
-const EncyclopediaList = () => {
-  const [encyclopedia, setEncyclopedia] = React.useState<EncyclopaediaPost[]>(
-    []
-  );
-
-  useEffect(() => {
-    getEncyclopedia().then((encyclopedia) => {
-      setEncyclopedia(encyclopedia);
-    });
-  }, []);
+const EncyclopediaList = async () => {
+  const encyclopedia = await getEncyclopedia();
 
   return (
     <div>

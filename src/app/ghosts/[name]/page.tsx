@@ -1,31 +1,22 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { Ghost } from "@/types";
+import React from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-
 import { getGhost } from "@/firebase/ghosts";
 
 const Back = () => <Link href="/ghosts">Назад</Link>;
 
-function Page() {
-  const params = useParams();
-
-  const [ghost, setGhost] = useState<Ghost>();
-
-  useEffect(() => {
-    if (params.name) {
-      getGhost(params.name as string).then((ghost) => {
-        setGhost(ghost);
-      });
-    }
-  }, [params.name]);
+export default async function Page({
+  params: { name },
+}: {
+  params: { name: string };
+}) {
+  const ghost = await getGhost(name as string);
 
   if (ghost === undefined) {
     return (
       <div>
         <Back />
-        <div>Загрузка...</div>
+        <div>Данных нет</div>
       </div>
     );
   }
@@ -44,5 +35,3 @@ function Page() {
     </div>
   );
 }
-
-export default Page;

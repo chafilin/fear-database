@@ -8,7 +8,7 @@ import { deleteLog, getLogs, postLog } from "@/firebase/log";
 export default function Logs() {
   const [logs, setLogs] = React.useState<Log[]>([]);
   const [newLog, setNewLog] = React.useState<string>("");
-  const [needUpdate, setNeedUpdate] = React.useState<boolean>(false);
+  const [needUpdate, setNeedUpdate] = React.useState<boolean>(true);
 
   useEffect(() => {
     if (needUpdate) {

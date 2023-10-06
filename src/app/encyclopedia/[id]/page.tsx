@@ -1,24 +1,15 @@
-"use client";
 import { getEncyclopediaPost } from "@/firebase/encyclopedia";
-import { EncyclopaediaPost } from "@/types";
 import Link from "next/link";
-import { useParams } from "next/navigation";
-import React, { useEffect } from "react";
+import React from "react";
 
 const Back = () => <Link href="/encyclopedia">Назад</Link>;
 
-const EncyclopaediaPost = () => {
-  const params = useParams();
-  const { id } = params;
-
-  const [encyclopedia, setEncyclopedia] =
-    React.useState<EncyclopaediaPost | null>(null);
-
-  useEffect(() => {
-    getEncyclopediaPost(id as string).then((encyclopedia) => {
-      setEncyclopedia(encyclopedia);
-    });
-  }, []);
+const EncyclopediaPost = async ({
+  params: { id },
+}: {
+  params: { id: string };
+}) => {
+  const encyclopedia = await getEncyclopediaPost(id as string);
 
   if (!encyclopedia) {
     return (
@@ -38,4 +29,4 @@ const EncyclopaediaPost = () => {
   );
 };
 
-export default EncyclopaediaPost;
+export default EncyclopediaPost;

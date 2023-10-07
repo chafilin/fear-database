@@ -1,0 +1,63 @@
+.root {
+  display: flex;
+  padding: 3rem 5.625rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.post_header {
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 1.5rem; /* 120% */
+  letter-spacing: 0.0125rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  align-self: stretch;
+  width: 80vw;
+}
+
+.post_content {
+  align-self: stretch;
+
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+  letter-spacing: 0.01rem;
+}
+
+.post_content > p {
+  margin: 1rem 0;
+}
+
+.records {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  align-self: stretch;
+}
+
+.substring {
+  color: oklch(var(--substring-color-oklch));
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375rem; /* 137.5% */
+  letter-spacing: 0.01rem;
+}
+
+.records_header {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+  letter-spacing: 0.01rem;
+  margin: 0;
+}

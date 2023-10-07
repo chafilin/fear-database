@@ -12,6 +12,8 @@
   --logs-background-oklch: 28.5% 0 0;
   --link-color-oklch: 70.74% 0.152 262.52;
   --quote-color-oklch: 69.93% 0 0;
+  --substring-color-oklch: 69.93% 0 0;
+
   /* Margins */
   --header-margin: 3.5rem 0;
 }

@@ -52,12 +52,6 @@ export type Ghost = {
   filters: Filters | undefined;
 };
 
-export type EncyclopaediaPost = {
-  id: string;
-  title: string;
-  description: string | undefined;
-};
-
 export type Log = {
   id: string;
   date: string;

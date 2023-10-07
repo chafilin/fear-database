@@ -1,39 +1,19 @@
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-a {
-  text-decoration: none;
-} */
-
 :root {
+  /* Sizes */
   --font-size: 16;
 
+  /* Colors */
   --foreground-oklch: 100% 0 0;
   --background-oklch: 23.5% 0 0;
   --link-background-oklch: 42.76% 0 0;
   --error-oklch: 72.99% 0.166 22.05;
   --icon-background-oklch: 28.91% 0 0;
+  --date-color-oklch: 69.93% 0 0;
+  --logs-background-oklch: 28.5% 0 0;
+  --link-color-oklch: 70.74% 0.152 262.52;
+  --quote-color-oklch: 69.93% 0 0;
+  /* Margins */
+  --header-margin: 3.5rem 0;
 }
 
 html,

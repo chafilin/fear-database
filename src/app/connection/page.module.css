@@ -3,7 +3,6 @@
   padding: 3rem 5.625rem;
   flex-direction: column;
   align-items: flex-start;
-  gap: 3rem;
 }
 
 .error {
@@ -17,13 +16,13 @@
   gap: 0.875rem;
 }
 
-.header {
+.block_header {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
 }
 
-.header_main {
+.block_header_main {
   font-size: 1rem;
   font-style: normal;
   font-weight: 600;
@@ -74,10 +73,6 @@
   margin-top: 2.5rem;
 }
 
-.link {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: 0.5rem;
+.header {
+  margin: var(--header-margin);
 }

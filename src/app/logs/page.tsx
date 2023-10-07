@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import { Log } from "@/types";
 import { deleteLog, getLogs, postLog } from "@/firebase/log";
+import { Header } from "@/components/header";
 
 export default function Logs() {
   const [logs, setLogs] = React.useState<Log[]>([]);
@@ -31,13 +32,17 @@ export default function Logs() {
   };
 
   return (
-    <div className={styles.logs}>
-      <Link href="/">Главная</Link>
-      <h1>Логи экспедиции</h1>
-      <h2>Автор Доктор Сал Ангер</h2>
-      <div className={styles.entries}>
-        <div className={styles.date}> 13 июля </div>
-        <div>
+    <div className={styles.root}>
+      <Header
+        title="Логи экспедиции"
+        backTitle="Бюро Исследований Паранормальных Явлений"
+        backHref="/"
+      />
+      <div className={styles.logs}>
+        <h2 className={styles.author}>Автор: Доктор Сал Ангер</h2>
+        <div className={styles.entries}>
+          <div className={styles.date}> 13 июля </div>
+
           <div className={styles.entry}>
             <div className={styles.time}>1. 9:00</div>
             Въехали в город. <br />
@@ -58,9 +63,23 @@ export default function Logs() {
             <div className={styles.time}>3. 15:00</div>
             Настройка датчиков закончена.
             <br />
-            Мы локализовали самые активные источники паранормального шума:
-            школа, радиостанция, больница и ратуша. Ратуша имеет наиболее
-            высокую активность. Отправляемся к ратуше.
+            Мы локализовали самые активные источники паранормального шума:{" "}
+            <Link className={styles.link} href="/encyclopedia/school">
+              школа
+            </Link>
+            ,{" "}
+            <Link className={styles.link} href="/encyclopedia/radio">
+              радиостанция
+            </Link>
+            ,{" "}
+            <Link className={styles.link} href="/encyclopedia/hospital">
+              больница
+            </Link>{" "}
+            и{" "}
+            <Link className={styles.link} href="/encyclopedia/citycenter">
+              ратуша
+            </Link>
+            . Ратуша имеет наиболее высокую активность. Отправляемся к ратуше.
           </div>
           <div className={styles.entry}>
             <div className={styles.time}>4. 17:00</div>
@@ -77,12 +96,17 @@ export default function Logs() {
             Похоже, школа, радиостанция и больница каким-то образом подпитывают
             ратушу и скрывают её от нас. Необходимо начать с них, очистить и
             проверить таким образом гипотезу. <br />
-            <br />
-            Примечания Гарри Форрестера: Сал не посчитала нужным добавить это в
-            отчёт. Назвав мои наблюдения “лишней лирикой”. Но я не могу не
-            зафиксировать: место ратуши скорее похоже не на воронку, а на
-            сердце, так как забирает энергию с определенной частотой. Тем не
-            менее вопрос — куда уходит эта энергия — остаётся открытым.
+            <blockquote className={styles.note}>
+              <p>
+                <i>Примечания Гарри Форрестера:</i>
+                <br />
+                Сал не посчитала нужным добавить это в отчёт. Назвав мои
+                наблюдения “лишней лирикой”. Но я не могу не зафиксировать:
+                место ратуши скорее похоже не на воронку, а на сердце, так как
+                забирает энергию с определенной частотой. Тем не менее вопрос —
+                куда уходит эта энергия — остаётся открытым.
+              </p>
+            </blockquote>
           </div>
           <div className={styles.entry}>
             <div className={styles.time}>6. 18:00</div>
@@ -90,41 +114,50 @@ export default function Logs() {
             того, что уже темно, решили переждать ночь в фургоне. Завтра с утра
             планируем отправиться в школу.
           </div>
-        </div>
-        <div className={styles.date}> 14 июля </div>
-        <div>
+
+          <div className={styles.date}> 14 июля </div>
+
           <div className={styles.entry}>
             <div className={styles.time}> 1. 12:00 </div>
-            <i>Примечания Гарри Форрестера:</i> Спал плохо, слышал странные
-            звуки снаружи фургона. Утром обследовал Сибил и Сэл. Никаких
-            признаков заболевания, но все плохо отдохнули.
-            <br />
-            <br />
+            <blockquote className={styles.note}>
+              <p>
+                <i>Примечания Гарри Форрестера:</i>
+                <br /> Спал плохо, слышал странные звуки снаружи фургона. Утром
+                обследовал Сибил и Сэл. Никаких признаков заболевания, но все
+                плохо отдохнули.
+              </p>
+            </blockquote>
             Мы собирались начать проверку гипотезы со школы, но обнаружили
             слабые импульсы из жилого дома (42.654563, -121.973873).
             Направляемся туда.
           </div>
         </div>
-      </div>
-      <div className={styles.entries}>
-        <div>
-          <h2>Последние записи</h2>
-          {logs.map((log) => (
-            <div className={styles.entry} key={log.date}>
-              <div className={styles.time}> {log.date} </div>
-              <div>{log.log}</div>
-              <button onClick={() => handleDelete(log.id)}>Delete</button>
-            </div>
-          ))}
+        <div className={styles.entries}>
+          <div>
+            {logs.map((log) => (
+              <div className={styles.entry} key={log.date}>
+                <div className={styles.time}> {log.date} </div>
+                <div>{log.log}</div>
+                {/* <button onClick={() => handleDelete(log.id)}>Delete</button> */}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-      <div>
-        <input
-          type="text"
+
+      <div className={styles.input_area}>
+        <h2>Добавить запись</h2>
+        <textarea
           value={newLog}
           onChange={(e) => setNewLog(e.target.value)}
+          className={styles.textarea}
+          rows={10}
+          placeholder="Напишите что-нибудь…"
+          autoCorrect="on"
         />
-        <button onClick={handleSubmit}>Отправить</button>
+        <button className={styles.button_submit} onClick={handleSubmit}>
+          Отправить
+        </button>
       </div>
     </div>
   );

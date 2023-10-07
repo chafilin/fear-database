@@ -41,7 +41,7 @@ type FilterTypes =
   | "incense"
   | "crucifix";
 
-type Filters = { [TYPE in FilterTypes]: string };
+export type Filters = { [TYPE in FilterTypes]: string };
 
 export type Ghost = {
   id: string;

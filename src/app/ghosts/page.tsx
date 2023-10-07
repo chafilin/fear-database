@@ -1,56 +1,67 @@
-"use client";
-import React, { useEffect } from "react";
-import { Answer, Ghost } from "@/types";
-import { Questions } from "@/components/questions";
-import styles from "./index.module.css";
 import Link from "next/link";
-import { getGhosts } from "@/firebase/ghosts";
-import RootLayout from "@/app/layout";
+import React from "react";
 
 const Ghosts = () => {
-  const [filtered, setFiltered] = React.useState<Ghost[]>([]);
-  const [ghosts, setGhost] = React.useState<Ghost[]>([]);
-
-  useEffect(() => {
-    getGhosts().then((ghosts) => {
-      setGhost(ghosts);
-      setFiltered(ghosts);
-    });
-  }, []);
-
-  const handleAnswers = (answers: Answer[]) => {
-    console.log(answers);
-    setFiltered(
-      ghosts.filter((item) =>
-        answers.every(
-          (answer) =>
-            item.filters && item.filters[answer.filter_id] === answer.value
-        )
-      )
-    );
-  };
-
   return (
-    <RootLayout>
-      <div>
-        <Link href="/">Главная</Link>
-      </div>
-      <div className={styles.root}>
-        <div className={styles.filters}>
-          <Questions handleAnswers={handleAnswers} />
-        </div>
-        <div className={styles.feed}>
-          {filtered.map((item) => (
-            <div key={item.name}>
-              <Link href={"/ghosts/" + item.id}>
-                <h1>{item.name}</h1>
-              </Link>
-              <p>{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </RootLayout>
+    <div>
+      <Link href="/">Главная</Link>
+      <h1>Призраки</h1>
+      <p>
+        Призрак — душа умершего человека, которая осталась существовать среди
+        живых людей. Причины, по которым призраки существуют обширны.
+        Исследования призраков продолжаются до сих пор.
+      </p>
+      <br />
+      <p>Призраки могут быть агрессивны и/или опасны.</p>
+      <br />
+      <p>
+        Если призрак опасен и зол, он может начать охоту. Во время охоты техника
+        начинает сбоить. Призрак неуязвим к обычному оружию. Рекомендуется
+        бежать подальше и прятаться. Чаще всего к охоте приводят следующие
+        раздражители:
+      </p>
+      <br />
+      <ul>
+        <li>- использование соли/распятий/святой воды/благовоний</li>
+        <li>- разрушение места обитания, </li>
+        <li>- ритуалы изгнания, </li>
+        <li>
+          - активное использование иных мистических ритуалов, даров, предметов,
+        </li>
+        <li>- долгое нахождение живого существа на территории призрака.</li>
+      </ul>
+      <br />
+      <h2>Регламент изгнания:</h2>
+      <ol>
+        <li>1. узнать имя</li>
+        <li>2. узнать причину смерти</li>
+        <li>
+          3. <Link href="/ghosts/search">узнать тип призрака</Link>{" "}
+        </li>
+        <li>4. провести соответствующий ритуал в месте обитания призрака</li>
+      </ol>
+      <br />
+      <p>
+        Призраки могут изменить форму, чтобы эффективнее охотиться или
+        прятаться. Но такая метаморфоза энергозатратна. Поэтому к ней прибегают
+        только в крайних случаях
+      </p>
+      <br />
+      <p>
+        Рядом с сильным призраком могут находиться слабые привидения, которые не
+        могут найти покой, пока сильный призрак не будет изгнан. Чаще всего
+        привидения — души умерших, которые при жизни были близки к призраку или
+        стали его жертвами. Привидения могут мешать изгнанию, но чаще всего —
+        помогают, поскольку сами страдают от связи с призраком или с миром
+        живых.
+      </p>
+      <br />
+      <p>
+        Если у вас появились новые сведения о призраках или вы хотите
+        скорректировать имеющуюся информацию, пожалуйста, обратитесь к своему
+        руководителю или в центральный офис.
+      </p>
+    </div>
   );
 };
 

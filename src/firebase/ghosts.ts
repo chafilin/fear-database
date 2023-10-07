@@ -7,7 +7,9 @@ const db = getFirestore(firebase_app);
 export const getGhosts = async () => {
   const ghostsCol = collection(db, "ghosts");
   const ghostsSnapshot = await getDocs(ghostsCol);
-  const ghostsList = ghostsSnapshot.docs.map((doc) => doc.data());
+  const ghostsList = ghostsSnapshot.docs
+    .map((doc) => doc.data())
+    .sort((a, b) => a.name.localeCompare(b.name));
   return ghostsList as Ghost[];
 };
 

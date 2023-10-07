@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import styles from "./logs.module.css";
+import styles from "./page.module.css";
 import Link from "next/link";
 import { Log } from "@/types";
 import { deleteLog, getLogs, postLog } from "@/firebase/log";
@@ -106,14 +106,17 @@ export default function Logs() {
           </div>
         </div>
       </div>
-      <div>
-        {logs.map((log) => (
-          <div key={log.date}>
-            <h1>{log.date}</h1>
-            <div>{log.log}</div>
-            <button onClick={() => handleDelete(log.id)}>Delete</button>
-          </div>
-        ))}
+      <div className={styles.entries}>
+        <div>
+          <h2>Последние записи</h2>
+          {logs.map((log) => (
+            <div className={styles.entry} key={log.date}>
+              <div className={styles.time}> {log.date} </div>
+              <div>{log.log}</div>
+              <button onClick={() => handleDelete(log.id)}>Delete</button>
+            </div>
+          ))}
+        </div>
       </div>
       <div>
         <input

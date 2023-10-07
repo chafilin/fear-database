@@ -1,0 +1,62 @@
+.root {
+  display: flex;
+  width: 74.625rem;
+  padding: 3rem 15rem 5rem 5.625rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.link {
+  color: oklch(var(--link-color-oklch));
+}
+
+.attention {
+  color: oklch(var(--attention-color-oklch));
+}
+
+.block {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+  letter-spacing: 0.01rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  align-self: stretch;
+}
+
+.block > p,
+.block > ul,
+.block > ol {
+  margin: 0;
+}
+
+.subheader {
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 1.5rem; /* 120% */
+  letter-spacing: 0.0125rem;
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  align-self: stretch;
+}
+
+.footer {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+  letter-spacing: 0.01rem;
+  color: oklch(var(--substring-color-oklch));
+  margin-top: 3rem;
+}

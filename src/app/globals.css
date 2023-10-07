@@ -27,10 +27,13 @@ a {
 } */
 
 :root {
+  --font-size: 16;
+
   --foreground-oklch: 100% 0 0;
   --background-oklch: 23.5% 0 0;
   --link-background-oklch: 42.76% 0 0;
-  --font-size: 16px;
+  --error-oklch: 72.99% 0.166 22.05;
+  --icon-background-oklch: 28.91% 0 0;
 }
 
 html,
@@ -38,6 +41,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: var(--font-size);
 }
 
 body {

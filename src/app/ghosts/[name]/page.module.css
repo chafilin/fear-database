@@ -1,0 +1,90 @@
+.root {
+  display: flex;
+  padding: 3rem 5.625rem 5rem 5.625rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bunishment {
+  background-color: oklch(var(--logs-background-oklch));
+  display: flex;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  align-self: stretch;
+}
+
+.subheader {
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 1.5rem; /* 120% */
+  letter-spacing: 0.0125rem;
+  margin: 0;
+}
+
+.bunishment_list {
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+  letter-spacing: 0.01rem;
+  align-self: stretch;
+  gap: 2rem;
+}
+
+.influence_header {
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 1.5rem; /* 120% */
+  letter-spacing: 0.0125rem;
+  margin-bottom: 0.75rem;
+}
+
+.filters {
+  background-color: oklch(var(--logs-background-oklch));
+  display: flex;
+  padding: 1.5rem;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-direction: column;
+
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 1.5rem; /* 150% */
+  letter-spacing: 0.01rem;
+  width: 13rem;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

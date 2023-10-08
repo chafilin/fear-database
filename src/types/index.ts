@@ -25,7 +25,7 @@ export type CheckboxQuestion = {
 
 export type Question = RadioQuestion | CheckboxQuestion;
 
-type FilterTypes =
+export type FilterTypes =
   | "shows"
   | "emp5"
   | "temperature"
@@ -49,7 +49,8 @@ export type Ghost = {
   description: string;
   influence: string;
   bunishment: string[];
-  filters: Filters | undefined;
+  filters: Filters;
+  image: string | null;
 };
 
 export type Log = {

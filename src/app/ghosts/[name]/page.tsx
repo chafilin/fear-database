@@ -50,7 +50,7 @@ export default async function Page({
           <div>{makeParagraphs(ghost.description)}</div>
           <div>
             <div className={styles.influence_header}>
-              Пример влияния Банши на людей
+              Пример влияния {ghost.name} на людей
             </div>
             <div>{makeParagraphs(ghost.influence)}</div>
           </div>
@@ -61,14 +61,16 @@ export default async function Page({
               <div key={filter}>{filter}</div>
             ))}
           </div>
-          <div className={styles.image}>
-            <Image
-              src={ghost.image || "/ghosts/unknown.png"}
-              alt={ghost.name}
-              width={256}
-              height={400}
-            />
-          </div>
+          {ghost.image && (
+            <div className={styles.image}>
+              <Image
+                src={ghost.image}
+                alt={ghost.name}
+                width={256}
+                height={400}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -109,7 +111,7 @@ const getHumanReadableFilters = (
 };
 
 const makeParagraphs = (text: string) => {
-  return text.split("/").map((paragraf) => {
-    return <p>{paragraf}</p>;
+  return text.split("/").map((paragraf, index) => {
+    return <p key={index}>{paragraf}</p>;
   });
 };

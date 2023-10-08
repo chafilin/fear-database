@@ -49,7 +49,7 @@ const History = () => {
 
 const School = () => {
   return (
-    <div className={styles.post}>
+    <div id="school" className={styles.post}>
       <div className={styles.post_header}>Школа</div>
       <div className={styles.post_content}>
         <p>
@@ -64,7 +64,7 @@ const School = () => {
 
 const RadioCenter = () => {
   return (
-    <div className={styles.post}>
+    <div id="radio" className={styles.post}>
       <div className={styles.post_header}>Радиоцентр</div>
       <div className={styles.post_content}>
         <p>
@@ -107,7 +107,7 @@ const RadioCenter = () => {
 
 const Hospital = () => {
   return (
-    <div className={styles.post}>
+    <div id="hospital" className={styles.post}>
       <div className={styles.post_header}>Больница</div>
       <div className={styles.post_content}>
         <p>
@@ -145,7 +145,7 @@ const Church = () => {
 
 const CityCenter = () => {
   return (
-    <div className={styles.post}>
+    <div id="citycenter" className={styles.post}>
       <div className={styles.post_header}>Ратуша</div>
       <div className={styles.post_content}>
         <p>

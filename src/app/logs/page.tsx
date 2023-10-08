@@ -64,19 +64,19 @@ export default function Logs() {
             Настройка датчиков закончена.
             <br />
             Мы локализовали самые активные источники паранормального шума:{" "}
-            <Link className={styles.link} href="/encyclopedia/school">
+            <Link className={styles.link} href="/encyclopedia?#school">
               школа
             </Link>
             ,{" "}
-            <Link className={styles.link} href="/encyclopedia/radio">
+            <Link className={styles.link} href="/encyclopedia?#radio">
               радиостанция
             </Link>
             ,{" "}
-            <Link className={styles.link} href="/encyclopedia/hospital">
+            <Link className={styles.link} href="/encyclopedia?#hospital">
               больница
             </Link>{" "}
             и{" "}
-            <Link className={styles.link} href="/encyclopedia/citycenter">
+            <Link className={styles.link} href="/encyclopedia?#citycenter">
               ратуша
             </Link>
             . Ратуша имеет наиболее высокую активность. Отправляемся к ратуше.

@@ -1,5 +1,5 @@
-import { on } from "events";
 import React from "react";
+import styles from "../index.module.css";
 
 type CheckboxProps = {
   name: string;
@@ -46,7 +46,9 @@ const Checkbox = ({ name, checked, onChange }: CheckboxProps) => {
   return (
     <div>
       <input ref={inputRef} type="checkbox" name={name} onClick={handleClick} />
-      <label htmlFor={name}>{name}</label>
+      <label className={styles.label} htmlFor={name}>
+        {name}
+      </label>
     </div>
   );
 };

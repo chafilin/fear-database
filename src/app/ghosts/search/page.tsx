@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { Answer, Ghost } from "@/types";
-import { Questions } from "@/components/questions";
+import { Questions } from "@/components/questions/index";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { getGhosts } from "@/firebase/ghosts";
@@ -30,22 +30,20 @@ const GhostsSearch = () => {
   };
 
   return (
-    <div>
+    <div className={styles.root}>
       <div>
         <Link href="/">Главная</Link>
         <Link href="/ghosts">Призраки</Link>
       </div>
-      <div className={styles.root}>
-        <div className={styles.filters}>
-          <Questions handleAnswers={handleAnswers} />
-        </div>
+      <div className={styles.content}>
+        <Questions handleAnswers={handleAnswers} />
         <div className={styles.feed}>
+          <h2 className={styles.feed_header}>Результаты</h2>
           {filtered.map((item) => (
             <div key={item.name}>
               <Link href={"/ghosts/" + item.id}>
-                <h1>{item.name}</h1>
+                <div className={styles.feed_item}>{item.name}</div>
               </Link>
-              <p>{item.description}</p>
             </div>
           ))}
         </div>

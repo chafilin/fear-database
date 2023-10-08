@@ -1,6 +1,7 @@
 import { Answer, CheckboxQuestion, Question, RadioQuestion } from "@/types";
 import React from "react";
 import { Checkbox } from "./checkbox";
+import styles from "../index.module.css";
 
 type QuestionProps = {
   question: Question;
@@ -23,9 +24,9 @@ const RadioQuestion = ({ question, handleChange }: RadioQuestionProps) => {
   };
 
   return (
-    <div>
-      <b>{question.text}</b>
-      <div>
+    <div className={styles.question_radio}>
+      <h2 className={styles.question_header}>{question.text}</h2>
+      <div className={styles.question_radio_variants}>
         {question.variants.map((variant) => (
           <div key={variant.value}>
             <input
@@ -34,7 +35,7 @@ const RadioQuestion = ({ question, handleChange }: RadioQuestionProps) => {
               value={variant.value}
               onChange={handleCheck}
             />
-            <label>{variant.text}</label>
+            <label className={styles.label}>{variant.text}</label>
           </div>
         ))}
       </div>
@@ -62,10 +63,8 @@ const CheckboxQuestion = ({
   };
 
   return (
-    <div>
-      <div>
-        <Checkbox checked={false} name={question.text} onChange={handleCheck} />
-      </div>
+    <div className={styles.question_checkbox}>
+      <Checkbox checked={false} name={question.text} onChange={handleCheck} />
     </div>
   );
 };

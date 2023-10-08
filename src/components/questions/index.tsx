@@ -1,7 +1,8 @@
 import { Question, Answer } from "@/types";
-import React, { use, useEffect } from "react";
-import { QuestionComponent } from "./question";
+import React, { useEffect } from "react";
+import { QuestionComponent } from "./components/question";
 import { getFilters } from "@/firebase/filters";
+import styles from "./index.module.css";
 
 type QuestionProps = {
   // questions: Question[];
@@ -40,7 +41,7 @@ const Questions = (props: QuestionProps) => {
   }, [answers]);
 
   return (
-    <div>
+    <div className={styles.questions}>
       {questions.map((question) => (
         <QuestionComponent
           key={question.id}

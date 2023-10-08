@@ -72,7 +72,6 @@
 
 .textarea {
   background-color: oklch(var(--logs-background-oklch));
-  width: 95%;
   display: flex;
   padding: 1.5rem;
   align-items: flex-start;

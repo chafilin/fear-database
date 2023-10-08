@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 76vw;
-  gap: 0.5rem 3rem;
+  gap: 0.5rem 1rem;
 }
 
 .question_radio:first-child {
@@ -12,7 +11,7 @@
 }
 
 .question_radio {
-  width: 35%;
+  width: 45%;
 }
 
 .question_checkbox {

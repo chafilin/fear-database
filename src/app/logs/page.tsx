@@ -15,7 +15,7 @@ export default function Logs() {
     if (needUpdate) {
       setNeedUpdate(false);
       getLogs().then((logs) => {
-        setLogs(logs);
+        setLogs(logs.sort((a, b) => (a.date > b.date ? 1 : -1)));
       });
     }
   }, [needUpdate]);
@@ -26,10 +26,10 @@ export default function Logs() {
     setNeedUpdate(true);
   };
 
-  const handleDelete = (id: string) => {
-    deleteLog(id);
-    setNeedUpdate(true);
-  };
+  // const handleDelete = (id: string) => {
+  //   deleteLog(id);
+  //   setNeedUpdate(true);
+  // };
 
   return (
     <div className={styles.root}>

@@ -47,13 +47,15 @@ export default async function Page({
       </div>
       <div className={styles.content}>
         <div className={styles.main}>
-          <div>{makeParagraphs(ghost.description)}</div>
-          <div>
-            <div className={styles.influence_header}>
-              Пример влияния {ghost.name} на людей
+          {makeParagraphs(ghost.description)}
+          {ghost.influence && (
+            <div>
+              <div className={styles.influence_header}>
+                Пример влияния {ghost.name} на людей
+              </div>
+              {makeParagraphs(ghost.influence)}
             </div>
-            <div>{makeParagraphs(ghost.influence)}</div>
-          </div>
+          )}
         </div>
         <div className={styles.side}>
           <div className={styles.filters}>
@@ -61,18 +63,19 @@ export default async function Page({
               <div key={filter}>{filter}</div>
             ))}
           </div>
-          {ghost.image && (
-            <div className={styles.image}>
-              <Image
-                src={ghost.image}
-                alt={ghost.name}
-                width={256}
-                height={400}
-              />
-            </div>
-          )}
         </div>
       </div>
+      {ghost.image && (
+        <div className={styles.image}>
+          <Image
+            src={ghost.image}
+            alt={ghost.name}
+            width={100}
+            height={100}
+            style={{ width: "auto", height: "100%" }}
+          />
+        </div>
+      )}
     </div>
   );
 }

@@ -28,18 +28,17 @@ const RadioQuestion = ({ question, handleChange }: RadioQuestionProps) => {
       <h2 className={styles.question_header}>{question.text}</h2>
       <div className={styles.question_radio_variants}>
         {question.variants.map((variant) => (
-          <div key={variant.value}>
+          <label key={variant.value}>
             <input
               type="radio"
               name={question.text}
               value={variant.value}
               onChange={handleCheck}
             />
-            <label className={styles.label}>{variant.text}</label>
-          </div>
+            <div className={styles.label}>{variant.text}</div>
+          </label>
         ))}
       </div>
-      <br />
     </div>
   );
 };

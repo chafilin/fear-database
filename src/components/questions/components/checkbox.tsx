@@ -45,7 +45,13 @@ const Checkbox = ({ name, checked, onChange }: CheckboxProps) => {
   };
   return (
     <div>
-      <input ref={inputRef} type="checkbox" name={name} onClick={handleClick} />
+      <input
+        ref={inputRef}
+        type="checkbox"
+        name={name}
+        id={name}
+        onClick={handleClick}
+      />
       <label className={styles.label} htmlFor={name}>
         {name}
       </label>

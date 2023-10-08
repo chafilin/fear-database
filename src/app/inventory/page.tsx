@@ -22,6 +22,7 @@ const Inventory = () => {
         <Salt />
         <Crucifix />
         <HolyWater />
+        <Incense />
         <Candle />
         <Lamp />
       </div>

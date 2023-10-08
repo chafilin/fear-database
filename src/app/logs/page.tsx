@@ -21,9 +21,10 @@ export default function Logs() {
   }, [needUpdate]);
 
   const handleSubmit = () => {
-    postLog(newLog);
-    setNewLog("");
-    setNeedUpdate(true);
+    postLog(newLog).then(() => {
+      setNewLog("");
+      setNeedUpdate(true);
+    });
   };
 
   // const handleDelete = (id: string) => {

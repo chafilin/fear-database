@@ -72,7 +72,12 @@ export default async function Page({
             alt={ghost.name}
             width={100}
             height={100}
-            style={{ width: "auto", height: "100%" }}
+            style={{
+              width: "auto",
+              height: "100%",
+              maxWidth: "100%",
+              objectFit: "contain",
+            }}
           />
         </div>
       )}

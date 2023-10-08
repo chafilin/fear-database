@@ -13,7 +13,7 @@ export default function Home() {
         <Link href="/connection">Связь с командами</Link>
         <Link href="/logs">Логи экспедиции</Link>
         <Link href="/encyclopedia">О городе</Link>
-        <Link href="">Об оборудовании</Link>
+        <Link href="/inventory">Об оборудовании</Link>
         <Link href="/ghosts">Призраки</Link>
         <Link href="/ghosts/search">Определить призрака</Link>
       </div>

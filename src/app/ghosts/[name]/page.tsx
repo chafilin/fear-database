@@ -3,7 +3,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { getGhost } from "@/firebase/ghosts";
 
-const Back = () => <Link href="/ghosts">Назад</Link>;
+const Back = () => <Link href="/ghosts/search">Назад</Link>;
 
 export default async function Page({
   params: { name },

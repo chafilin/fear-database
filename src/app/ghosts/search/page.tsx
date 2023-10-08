@@ -5,6 +5,7 @@ import { Questions } from "@/components/questions/index";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { getGhosts } from "@/firebase/ghosts";
+import { Header } from "@/components/header";
 
 const GhostsSearch = () => {
   const [filtered, setFiltered] = React.useState<Ghost[]>([]);
@@ -31,10 +32,11 @@ const GhostsSearch = () => {
 
   return (
     <div className={styles.root}>
-      <div>
-        <Link href="/">Главная</Link>
-        <Link href="/ghosts">Призраки</Link>
-      </div>
+      <Header
+        title="Определить призрака"
+        backTitle="Бюро Исследований Паранормальных Явлений"
+        backHref="/"
+      />
       <div className={styles.content}>
         <Questions handleAnswers={handleAnswers} />
         <div className={styles.feed}>

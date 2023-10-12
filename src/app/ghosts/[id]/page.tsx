@@ -13,7 +13,7 @@ export default async function Page({
   params: { id: string };
 }) {
   const { ghost, filters }: { ghost: Ghost; filters: Question[] } = await fetch(
-    "http://localhost:3000/api/ghosts/" + id
+    "/api/ghosts/" + id
   ).then((res) => res.json());
 
   if (ghost === undefined) {

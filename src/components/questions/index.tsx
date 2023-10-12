@@ -31,7 +31,7 @@ const Questions = (props: QuestionProps) => {
 
   useEffect(() => {
     handleAnswers(answers);
-  }, [answers]);
+  }, [answers, handleAnswers]);
 
   return (
     <div className={styles.questions}>

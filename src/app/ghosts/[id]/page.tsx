@@ -8,12 +8,12 @@ import Image from "next/image";
 const Back = () => <Link href="/ghosts/search">Назад</Link>;
 
 export default async function Page({
-  params: { name },
+  params: { id },
 }: {
-  params: { name: string };
+  params: { id: string };
 }) {
   const { ghost, filters }: { ghost: Ghost; filters: Question[] } = await fetch(
-    "http://localhost:3000/api/ghosts/" + name
+    "http://localhost:3000/api/ghosts/" + id
   ).then((res) => res.json());
 
   if (ghost === undefined) {

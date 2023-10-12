@@ -1,8 +1,7 @@
 "use client";
 import { Question, Answer } from "@/types";
-import React, { useEffect } from "react";
+import React from "react";
 import { QuestionComponent } from "./components/question";
-import { getFilters } from "@/firebase/filters";
 import styles from "./index.module.css";
 
 type QuestionProps = {
@@ -16,22 +15,21 @@ const Questions = (props: QuestionProps) => {
   const [answers, setAnswers] = React.useState<Answer[]>([]);
 
   const handleChange = (answer: Answer) => {
+    let resultAnswers = [];
     if (answer.value === "unknown") {
-      setAnswers(answers.filter((item) => item.filter_id !== answer.filter_id));
+      resultAnswers = answers.filter(
+        (item) => item.filter_id !== answer.filter_id
+      );
     } else if (answers.some((item) => item.filter_id === answer.filter_id)) {
-      setAnswers(
-        answers.map((item) =>
-          item.filter_id === answer.filter_id ? answer : item
-        )
+      resultAnswers = answers.map((item) =>
+        item.filter_id === answer.filter_id ? answer : item
       );
     } else {
-      setAnswers([...answers, answer]);
+      resultAnswers = [...answers, answer];
     }
+    handleAnswers(resultAnswers);
+    setAnswers(resultAnswers);
   };
-
-  useEffect(() => {
-    handleAnswers(answers);
-  }, [answers, handleAnswers]);
 
   return (
     <div className={styles.questions}>

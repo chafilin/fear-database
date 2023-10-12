@@ -161,7 +161,11 @@ export default function Logs() {
           placeholder="Напишите что-нибудь…"
           autoCorrect="on"
         />
-        <button className={styles.button_submit} onClick={handleSubmit}>
+        <button
+          className={styles.button_submit}
+          onClick={handleSubmit}
+          disabled={!newLog}
+        >
           Отправить
         </button>
       </div>

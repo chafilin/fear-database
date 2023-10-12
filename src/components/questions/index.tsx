@@ -1,3 +1,4 @@
+"use client";
 import { Question, Answer } from "@/types";
 import React, { useEffect } from "react";
 import { QuestionComponent } from "./components/question";
@@ -5,20 +6,12 @@ import { getFilters } from "@/firebase/filters";
 import styles from "./index.module.css";
 
 type QuestionProps = {
-  // questions: Question[];
+  questions: Question[];
   handleAnswers: (answers: Answer[]) => void;
 };
 
 const Questions = (props: QuestionProps) => {
-  const { handleAnswers } = props;
-
-  const [questions, setQuestions] = React.useState<Question[]>([]);
-
-  useEffect(() => {
-    getFilters().then((filters) => {
-      setQuestions(filters.sort((a, b) => a.priority - b.priority));
-    });
-  }, []);
+  const { handleAnswers, questions } = props;
 
   const [answers, setAnswers] = React.useState<Answer[]>([]);
 

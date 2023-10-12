@@ -14,17 +14,24 @@ export default function Logs() {
   useEffect(() => {
     if (needUpdate) {
       setNeedUpdate(false);
-      getLogs().then((logs) => {
-        setLogs(logs.sort((a, b) => (a.date > b.date ? 1 : -1)));
-      });
+      fetch("/api/logs")
+        .then((res) => res.json())
+        .then(({ logs }: { logs: Log[] }) => {
+          setLogs(logs);
+        });
     }
   }, [needUpdate]);
 
   const handleSubmit = () => {
-    postLog(newLog).then(() => {
-      setNewLog("");
-      setNeedUpdate(true);
-    });
+    fetch("/api/logs", {
+      body: JSON.stringify({ message: newLog }),
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setNewLog("");
+        setNeedUpdate(true);
+      });
   };
 
   // const handleDelete = (id: string) => {

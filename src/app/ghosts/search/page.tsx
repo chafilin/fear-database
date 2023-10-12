@@ -1,25 +1,27 @@
 "use client";
 import React, { useEffect } from "react";
-import { Answer, Ghost } from "@/types";
+import { Answer, Ghost, Question } from "@/types";
 import { Questions } from "@/components/questions/index";
 import styles from "./page.module.css";
 import Link from "next/link";
-import { getGhosts } from "@/firebase/ghosts";
 import { Header } from "@/components/header";
 
 const GhostsSearch = () => {
   const [filtered, setFiltered] = React.useState<Ghost[]>([]);
   const [ghosts, setGhost] = React.useState<Ghost[]>([]);
+  const [filters, setFilters] = React.useState<Question[]>([]);
 
   useEffect(() => {
-    getGhosts().then((ghosts) => {
-      setGhost(ghosts);
-      setFiltered(ghosts);
-    });
+    fetch("/api/ghosts/search")
+      .then((res) => res.json())
+      .then(({ ghosts, filters }) => {
+        setGhost(ghosts);
+        setFiltered(ghosts);
+        setFilters(filters);
+      });
   }, []);
 
   const handleAnswers = (answers: Answer[]) => {
-    console.log(answers);
     setFiltered(
       ghosts.filter((item) =>
         answers.every(
@@ -38,7 +40,7 @@ const GhostsSearch = () => {
         backHref="/"
       />
       <div className={styles.content}>
-        <Questions handleAnswers={handleAnswers} />
+        <Questions handleAnswers={handleAnswers} questions={filters} />
         <div className={styles.feed}>
           <h2 className={styles.feed_header}>Результаты</h2>
           {filtered.map((item) => (

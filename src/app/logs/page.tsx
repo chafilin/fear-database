@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { Log } from "@/types";
-import { deleteLog, getLogs, postLog } from "@/firebase/log";
 import { Header } from "@/components/header";
 
 export default function Logs() {

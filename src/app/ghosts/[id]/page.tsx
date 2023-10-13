@@ -77,6 +77,7 @@ export default async function Page({
               height: "100%",
               maxWidth: "100%",
               objectFit: "contain",
+              objectPosition: "top",
             }}
           />
         </div>

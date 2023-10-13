@@ -70,8 +70,8 @@ export default async function Page({
           <Image
             src={ghost.image}
             alt={ghost.name}
-            width={100}
-            height={100}
+            width={1000}
+            height={1000}
             style={{
               width: "auto",
               height: "100%",

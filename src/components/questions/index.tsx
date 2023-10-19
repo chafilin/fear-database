@@ -31,15 +31,26 @@ const Questions = (props: QuestionProps) => {
     setAnswers(resultAnswers);
   };
 
+  const handleReset = () => {
+    setAnswers([]);
+    handleAnswers([]);
+  };
+
   return (
-    <div className={styles.questions}>
-      {questions.map((question) => (
-        <QuestionComponent
-          key={question.id}
-          question={question}
-          handleChange={handleChange}
-        />
-      ))}
+    <div className={styles.root}>
+      <button className={styles.button} onClick={handleReset}>
+        Сбросить фильтры
+      </button>
+      <div className={styles.questions}>
+        {questions.map((question) => (
+          <QuestionComponent
+            key={question.id}
+            question={question}
+            handleChange={handleChange}
+            answer={answers.find((item) => item.filter_id === question.id)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

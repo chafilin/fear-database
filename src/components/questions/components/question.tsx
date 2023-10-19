@@ -6,19 +6,26 @@ import styles from "../index.module.css";
 type QuestionProps = {
   question: Question;
   handleChange: (answer: Answer) => void;
+  answer: Answer | undefined;
 };
 
 type RadioQuestionProps = {
   question: RadioQuestion;
   handleChange: (answer: Answer) => void;
+  answer: Answer | undefined;
 };
 
 type CheckboxQuestionProps = {
   question: CheckboxQuestion;
   handleChange: (answer: Answer) => void;
+  answer: Answer | undefined;
 };
 
-const RadioQuestion = ({ question, handleChange }: RadioQuestionProps) => {
+const RadioQuestion = ({
+  question,
+  handleChange,
+  answer,
+}: RadioQuestionProps) => {
   const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
     handleChange({ filter_id: question.id, value: event.target.value });
   };
@@ -34,6 +41,7 @@ const RadioQuestion = ({ question, handleChange }: RadioQuestionProps) => {
               name={question.text}
               value={variant.value}
               onChange={handleCheck}
+              checked={(answer && answer.value === variant.value) || false}
             />
             <div className={styles.label}>{variant.text}</div>
           </label>
@@ -46,6 +54,7 @@ const RadioQuestion = ({ question, handleChange }: RadioQuestionProps) => {
 const CheckboxQuestion = ({
   question,
   handleChange,
+  answer,
 }: CheckboxQuestionProps) => {
   const handleCheck = (checked: boolean | null) => {
     switch (checked) {
@@ -61,20 +70,41 @@ const CheckboxQuestion = ({
     }
   };
 
+  const checked =
+    answer && answer.value === "yes"
+      ? true
+      : answer && answer.value === "no"
+      ? null
+      : false;
+
   return (
     <div className={styles.question_checkbox}>
-      <Checkbox checked={false} name={question.text} onChange={handleCheck} />
+      <Checkbox checked={checked} name={question.text} onChange={handleCheck} />
     </div>
   );
 };
 
-const QuestionComponent = ({ question, handleChange }: QuestionProps) => {
+const QuestionComponent = ({
+  question,
+  handleChange,
+  answer,
+}: QuestionProps) => {
   switch (question.type) {
     case "radio":
-      return <RadioQuestion question={question} handleChange={handleChange} />;
+      return (
+        <RadioQuestion
+          question={question}
+          handleChange={handleChange}
+          answer={answer}
+        />
+      );
     case "checkbox":
       return (
-        <CheckboxQuestion question={question} handleChange={handleChange} />
+        <CheckboxQuestion
+          question={question}
+          handleChange={handleChange}
+          answer={answer}
+        />
       );
     default:
       return null;

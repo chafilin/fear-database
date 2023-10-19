@@ -1,54 +1,56 @@
+"use client";
 import { Question, Answer } from "@/types";
-import React, { useEffect } from "react";
+import React from "react";
 import { QuestionComponent } from "./components/question";
-import { getFilters } from "@/firebase/filters";
 import styles from "./index.module.css";
 
 type QuestionProps = {
-  // questions: Question[];
+  questions: Question[];
   handleAnswers: (answers: Answer[]) => void;
 };
 
 const Questions = (props: QuestionProps) => {
-  const { handleAnswers } = props;
-
-  const [questions, setQuestions] = React.useState<Question[]>([]);
-
-  useEffect(() => {
-    getFilters().then((filters) => {
-      setQuestions(filters.sort((a, b) => a.priority - b.priority));
-    });
-  }, []);
+  const { handleAnswers, questions } = props;
 
   const [answers, setAnswers] = React.useState<Answer[]>([]);
 
   const handleChange = (answer: Answer) => {
+    let resultAnswers = [];
     if (answer.value === "unknown") {
-      setAnswers(answers.filter((item) => item.filter_id !== answer.filter_id));
+      resultAnswers = answers.filter(
+        (item) => item.filter_id !== answer.filter_id
+      );
     } else if (answers.some((item) => item.filter_id === answer.filter_id)) {
-      setAnswers(
-        answers.map((item) =>
-          item.filter_id === answer.filter_id ? answer : item
-        )
+      resultAnswers = answers.map((item) =>
+        item.filter_id === answer.filter_id ? answer : item
       );
     } else {
-      setAnswers([...answers, answer]);
+      resultAnswers = [...answers, answer];
     }
+    handleAnswers(resultAnswers);
+    setAnswers(resultAnswers);
   };
 
-  useEffect(() => {
-    handleAnswers(answers);
-  }, [answers]);
+  const handleReset = () => {
+    setAnswers([]);
+    handleAnswers([]);
+  };
 
   return (
-    <div className={styles.questions}>
-      {questions.map((question) => (
-        <QuestionComponent
-          key={question.id}
-          question={question}
-          handleChange={handleChange}
-        />
-      ))}
+    <div className={styles.root}>
+      <button className={styles.button} onClick={handleReset}>
+        Сбросить фильтры
+      </button>
+      <div className={styles.questions}>
+        {questions.map((question) => (
+          <QuestionComponent
+            key={question.id}
+            question={question}
+            handleChange={handleChange}
+            answer={answers.find((item) => item.filter_id === question.id)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

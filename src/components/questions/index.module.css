@@ -1,3 +1,27 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  width: fit-content;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  border-color: transparent;
+  color: oklch(var(--foreground-oklch));
+  background: oklch(var(--link-background-oklch));
+}
+
 .questions {
   display: flex;
   flex-direction: row;

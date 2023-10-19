@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { Log } from "@/types";
-import { deleteLog, getLogs, postLog } from "@/firebase/log";
 import { Header } from "@/components/header";
 
 export default function Logs() {
@@ -14,17 +13,24 @@ export default function Logs() {
   useEffect(() => {
     if (needUpdate) {
       setNeedUpdate(false);
-      getLogs().then((logs) => {
-        setLogs(logs.sort((a, b) => (a.date > b.date ? 1 : -1)));
-      });
+      fetch("/api/logs")
+        .then((res) => res.json())
+        .then(({ logs }: { logs: Log[] }) => {
+          setLogs(logs);
+        });
     }
   }, [needUpdate]);
 
   const handleSubmit = () => {
-    postLog(newLog).then(() => {
-      setNewLog("");
-      setNeedUpdate(true);
-    });
+    fetch("/api/logs", {
+      body: JSON.stringify({ message: newLog }),
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setNewLog("");
+        setNeedUpdate(true);
+      });
   };
 
   // const handleDelete = (id: string) => {
@@ -154,7 +160,11 @@ export default function Logs() {
           placeholder="Напишите что-нибудь…"
           autoCorrect="on"
         />
-        <button className={styles.button_submit} onClick={handleSubmit}>
+        <button
+          className={styles.button_submit}
+          onClick={handleSubmit}
+          disabled={!newLog}
+        >
           Отправить
         </button>
       </div>

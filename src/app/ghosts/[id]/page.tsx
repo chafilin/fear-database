@@ -1,20 +1,20 @@
 import React from "react";
 import Link from "next/link";
-import { getGhost } from "@/firebase/ghosts";
 import { Header } from "@/components/header";
 import styles from "./page.module.css";
-import { FilterTypes, Filters, Question } from "@/types";
-import { getFilters } from "@/firebase/filters";
+import { FilterTypes, Filters, Ghost, Question } from "@/types";
 import Image from "next/image";
+import { getGhost } from "@/firebase/ghosts";
+import { getFilters } from "@/firebase/filters";
 
 const Back = () => <Link href="/ghosts/search">Назад</Link>;
 
 export default async function Page({
-  params: { name },
+  params: { id },
 }: {
-  params: { name: string };
+  params: { id: string };
 }) {
-  const ghost = await getGhost(name as string);
+  const ghost = await getGhost(id);
   const filters = await getFilters();
 
   if (ghost === undefined) {

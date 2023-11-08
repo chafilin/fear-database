@@ -1,0 +1,101 @@
+[
+  {
+    "text": "Распятия",
+    "type": "radio",
+    "id": "crucifix",
+    "variants": [
+      { "text": "Не реагирует", "value": "no" },
+      { "text": "Боится", "value": "fear" },
+      { "text": "Злится", "value": "rage" }
+    ],
+    "priority": 12
+  },
+  { "id": "emp5", "type": "checkbox", "priority": 2, "text": "ЭМП 5" },
+  {
+    "id": "incense",
+    "text": "Благовония",
+    "variants": [
+      { "text": "Не реагирует", "value": "no" },
+      { "text": "Злится", "value": "rage" },
+      { "text": "Боится", "value": "fear" }
+    ],
+    "type": "radio",
+    "priority": 14
+  },
+  {
+    "id": "move",
+    "type": "checkbox",
+    "priority": 8,
+    "text": "Датчик движения срабатывает"
+  },
+  {
+    "id": "photo",
+    "text": "Виден на фото или видео",
+    "type": "checkbox",
+    "priority": 5
+  },
+  {
+    "id": "salt",
+    "text": "Соль",
+    "type": "radio",
+    "variants": [
+      { "text": "Не реагирует", "value": "no" },
+      { "text": "Злится", "value": "rage" },
+      { "text": "Боится", "value": "fear" }
+    ],
+    "priority": 11
+  },
+  {
+    "id": "shows",
+    "text": "Показывает свой человеческий облик",
+    "type": "radio",
+    "priority": 1,
+    "variants": [
+      { "text": "Всем", "value": "yes" },
+      { "text": "Наедине", "value": "one" },
+      { "text": "Никогда", "value": "no" }
+    ]
+  },
+  {
+    "id": "sound",
+    "text": "Датчик звука срабатывает",
+    "type": "checkbox",
+    "priority": 7
+  },
+  {
+    "id": "spiritbox",
+    "text": "Отвечает по спиритбоксу",
+    "type": "checkbox",
+    "priority": 6
+  },
+  {
+    "text": "Следы ног на песке, соли",
+    "id": "steps",
+    "type": "checkbox",
+    "priority": 9
+  },
+  {
+    "id": "temperature",
+    "type": "checkbox",
+    "priority": 3,
+    "text": "0℃ и ниже"
+  },
+  { "id": "uf", "type": "checkbox", "priority": 4, "text": "УФ-следы" },
+  {
+    "id": "walls",
+    "text": "Проходит сквозь стены и двери",
+    "type": "checkbox",
+    "priority": 10
+  },
+  {
+    "id": "water",
+    "text": "Святая вода",
+    "type": "radio",
+    "variants": [
+      { "text": "Не реагирует", "value": "no" },
+      { "text": "Злится", "value": "rage" },
+      { "text": "Боится", "value": "fear" }
+    ],
+    "priority": 13
+  }
+]

@@ -5,21 +5,15 @@ import { Questions } from "@/components/questions/index";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { Header } from "@/components/header";
+import allGhosts from "@/data/ghosts.json";
+import allFilters from "@/data/filters.json";
 
 const GhostsSearch = () => {
-  const [filtered, setFiltered] = React.useState<Ghost[]>([]);
-  const [ghosts, setGhost] = React.useState<Ghost[]>([]);
-  const [filters, setFilters] = React.useState<Question[]>([]);
-
-  useEffect(() => {
-    fetch("/api/ghosts/search")
-      .then((res) => res.json())
-      .then(({ ghosts, filters }) => {
-        setGhost(ghosts);
-        setFiltered(ghosts);
-        setFilters(filters);
-      });
-  }, []);
+  const [filtered, setFiltered] = React.useState<Ghost[]>(allGhosts as Ghost[]);
+  const [ghosts, setGhost] = React.useState<Ghost[]>(allGhosts as Ghost[]);
+  const [filters, setFilters] = React.useState<Question[]>(
+    allFilters as Question[]
+  );
 
   const handleAnswers = (answers: Answer[]) => {
     setFiltered(

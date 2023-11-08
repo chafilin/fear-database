@@ -141,9 +141,9 @@ export default function Logs() {
         </div>
         <div className={styles.entries}>
           {logs.map((log) => (
-            <div className={styles.entry} key={log.date}>
-              <div className={styles.time}> {log.date} </div>
-              <div>{log.log}</div>
+            <div className={styles.entry} key={log.created_at}>
+              <div className={styles.time}> {log.created_at} </div>
+              <div>{log.message}</div>
               {/* <button onClick={() => handleDelete(log.id)}>Delete</button> */}
             </div>
           ))}

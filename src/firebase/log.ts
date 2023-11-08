@@ -33,6 +33,7 @@ export const getLogs = async () => {
       log: data.log,
     };
   });
+  // @ts-ignore
   return logsDoc as Log[];
 };
 

@@ -55,6 +55,6 @@ export type Ghost = {
 
 export type Log = {
   id: string;
-  date: string;
-  log: string;
+  created_at: string;
+  message: string;
 };

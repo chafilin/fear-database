@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { Answer, Ghost, Question } from "@/types";
-import { Questions } from "@/components/questions/index";
+import { Questions } from "./components/questions/index";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { Header } from "@/components/header";

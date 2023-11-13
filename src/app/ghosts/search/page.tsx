@@ -11,7 +11,9 @@ import allFilters from "@/data/filters.json";
 const GhostsSearch = () => {
   const [filtered, setFiltered] = React.useState<Ghost[]>(allGhosts as Ghost[]);
   const ghosts = allGhosts as Ghost[];
-  const filters = allFilters as Question[];
+  const filters = allFilters.sort(
+    (a, b) => a.priority - b.priority
+  ) as Question[];
 
   const handleAnswers = (answers: Answer[]) => {
     setFiltered(

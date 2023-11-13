@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 export async function GET(): Promise<Response> {
   const logs = await getLogs();
 
-  return new Response(JSON.stringify({ logs: logs }), {
+  return new Response(JSON.stringify(logs), {
     headers: { "content-type": "application/json" },
   });
 }

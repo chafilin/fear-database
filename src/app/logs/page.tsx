@@ -1,42 +1,19 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
-import { Log } from "@/types";
 import { Header } from "@/components/header";
+import { UserLogs } from "./parts/userLogs";
+import { PostLog } from "./parts/postLog";
+
+const poster = (url: string, body: any) =>
+  fetch(url, {
+    body: JSON.stringify(body),
+    method: "POST",
+  }).then((res) => res.json());
 
 export default function Logs() {
-  const [logs, setLogs] = React.useState<Log[]>([]);
-  const [newLog, setNewLog] = React.useState<string>("");
-  const [needUpdate, setNeedUpdate] = React.useState<boolean>(true);
-
-  useEffect(() => {
-    if (needUpdate) {
-      setNeedUpdate(false);
-      fetch("/api/logs")
-        .then((res) => res.json())
-        .then(({ logs }: { logs: Log[] }) => {
-          setLogs(logs);
-        });
-    }
-  }, [needUpdate]);
-
-  const handleSubmit = () => {
-    fetch("/api/logs", {
-      body: JSON.stringify({ message: newLog }),
-      method: "POST",
-    })
-      .then((res) => res.json())
-      .then(() => {
-        setNewLog("");
-        setNeedUpdate(true);
-      });
-  };
-
-  // const handleDelete = (id: string) => {
-  //   deleteLog(id);
-  //   setNeedUpdate(true);
-  // };
+  const [refresh, setRefresh] = React.useState<boolean>(false);
 
   return (
     <div className={styles.root}>
@@ -139,35 +116,20 @@ export default function Logs() {
             Направляемся туда.
           </div>
         </div>
-        <div className={styles.entries}>
-          {logs.map((log) => (
-            <div className={styles.entry} key={log.created_at}>
-              <div className={styles.time}> {log.created_at} </div>
-              <div>{log.message}</div>
-              {/* <button onClick={() => handleDelete(log.id)}>Delete</button> */}
-            </div>
-          ))}
-        </div>
+
+        <UserLogs
+          refresh={refresh}
+          onRefresh={() => {
+            setRefresh(false);
+          }}
+        />
       </div>
 
-      <div className={styles.input_area}>
-        <h2>Добавить запись</h2>
-        <textarea
-          value={newLog}
-          onChange={(e) => setNewLog(e.target.value)}
-          className={styles.textarea}
-          rows={10}
-          placeholder="Напишите что-нибудь…"
-          autoCorrect="on"
-        />
-        <button
-          className={styles.button_submit}
-          onClick={handleSubmit}
-          disabled={!newLog}
-        >
-          Отправить
-        </button>
-      </div>
+      <PostLog
+        onNewLog={() => {
+          setRefresh(true);
+        }}
+      />
     </div>
   );
 }

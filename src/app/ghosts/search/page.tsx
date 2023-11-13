@@ -10,10 +10,8 @@ import allFilters from "@/data/filters.json";
 
 const GhostsSearch = () => {
   const [filtered, setFiltered] = React.useState<Ghost[]>(allGhosts as Ghost[]);
-  const [ghosts, setGhost] = React.useState<Ghost[]>(allGhosts as Ghost[]);
-  const [filters, setFilters] = React.useState<Question[]>(
-    allFilters as Question[]
-  );
+  const ghosts = allGhosts as Ghost[];
+  const filters = allFilters as Question[];
 
   const handleAnswers = (answers: Answer[]) => {
     setFiltered(

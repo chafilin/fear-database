@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../index.module.css";
 
 type CheckboxProps = {
@@ -21,7 +21,7 @@ const updateInput = (ref: Ref, checked: boolean | null) => {
 const Checkbox = ({ name, checked, onChange }: CheckboxProps) => {
   const inputRef = React.useRef(null);
   const checkedRef = React.useRef(checked);
-  React.useEffect(() => {
+  useEffect(() => {
     checkedRef.current = checked;
     updateInput(inputRef, checked);
   }, [checked]);

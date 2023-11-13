@@ -45,7 +45,12 @@ const Emp = () => {
         </div>
       </div>
       <div className={styles.image}>
-        <Image src="/emp.png" width={200} height={200} alt="Детектор ЭМП" />
+        <Image
+          src="/assets/inventory/emp.png"
+          width={200}
+          height={200}
+          alt="Детектор ЭМП"
+        />
       </div>
     </div>
   );
@@ -65,7 +70,7 @@ const Termometer = () => {
       </div>
       <div className={styles.image}>
         <Image
-          src="/temperature.png"
+          src="/assets/inventory/temperature.png"
           width={200}
           height={200}
           alt="Термометр"
@@ -87,7 +92,12 @@ const Uf = () => {
         </div>
       </div>
       <div className={styles.image}>
-        <Image src="/uf.png" width={200} height={200} alt="УФ-фонарь" />
+        <Image
+          src="/assets/inventory/uf.png"
+          width={200}
+          height={200}
+          alt="УФ-фонарь"
+        />
       </div>
     </div>
   );
@@ -111,7 +121,7 @@ const Camera = () => {
       </div>
       <div className={styles.image}>
         <Image
-          src="/camera.png"
+          src="/assets/inventory/camera.png"
           width={200}
           height={200}
           alt="Камера с режимом ночной съёмки"
@@ -133,7 +143,12 @@ const SpiritBox = () => {
         </div>
       </div>
       <div className={styles.image}>
-        <Image src="/radio.png" width={200} height={200} alt="Спирит Бокс" />
+        <Image
+          src="/assets/inventory/radio.png"
+          width={200}
+          height={200}
+          alt="Спирит Бокс"
+        />
       </div>
     </div>
   );
@@ -159,7 +174,12 @@ const SoundSensor = () => {
         </div>
       </div>
       <div className={styles.image}>
-        <Image src="/sound.png" width={200} height={200} alt="Датчик звука" />
+        <Image
+          src="/assets/inventory/sound.png"
+          width={200}
+          height={200}
+          alt="Датчик звука"
+        />
       </div>
     </div>
   );
@@ -184,7 +204,12 @@ const MovementSensor = () => {
         </div>
       </div>
       <div className={styles.image}>
-        <Image src="/move.png" width={200} height={200} alt="Датчик движения" />
+        <Image
+          src="/assets/inventory/move.png"
+          width={200}
+          height={200}
+          alt="Датчик движения"
+        />
       </div>
     </div>
   );
@@ -208,7 +233,12 @@ const Salt = () => {
         <div>Более эффективна, чем обычная соль.</div>
       </div>
       <div className={styles.image}>
-        <Image src="/salt.png" width={200} height={200} alt="Соль" />
+        <Image
+          src="/assets/inventory/salt.png"
+          width={200}
+          height={200}
+          alt="Соль"
+        />
       </div>
     </div>
   );
@@ -227,7 +257,12 @@ const Crucifix = () => {
         <div>Наиболее эффективно в руках набожного человека.</div>
       </div>
       <div className={styles.image}>
-        <Image src="/crucifix.png" width={200} height={200} alt="Распятие" />
+        <Image
+          src="/assets/inventory/crucifix.png"
+          width={200}
+          height={200}
+          alt="Распятие"
+        />
       </div>
     </div>
   );
@@ -246,7 +281,12 @@ const HolyWater = () => {
         <div>Наиболее эффективна в руках набожного человека.</div>
       </div>
       <div className={styles.image}>
-        <Image src="/water.png" width={200} height={200} alt="Святая вода" />
+        <Image
+          src="/assets/inventory/water.png"
+          width={200}
+          height={200}
+          alt="Святая вода"
+        />
       </div>
     </div>
   );
@@ -268,7 +308,12 @@ const Incense = () => {
         </div>
       </div>
       <div className={styles.image}>
-        <Image src="/incense.png" width={200} height={200} alt="Благовония" />
+        <Image
+          src="/assets/inventory/incense.png"
+          width={200}
+          height={200}
+          alt="Благовония"
+        />
       </div>
     </div>
   );
@@ -287,7 +332,12 @@ const Candle = () => {
         </div>
       </div>
       <div className={styles.image}>
-        <Image src="/candle.png" width={200} height={200} alt="Свеча" />
+        <Image
+          src="/assets/inventory/candle.png"
+          width={200}
+          height={200}
+          alt="Свеча"
+        />
       </div>
     </div>
   );
@@ -301,7 +351,12 @@ const Lamp = () => {
         <div>Обычный фонарик, ничего больше, ничего меньше.</div>
       </div>
       <div className={styles.image}>
-        <Image src="/lamp.png" width={200} height={200} alt="Фонарик" />
+        <Image
+          src="/assets/inventory/lamp.png"
+          width={200}
+          height={200}
+          alt="Фонарик"
+        />
       </div>
     </div>
   );

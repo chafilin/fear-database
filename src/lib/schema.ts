@@ -1,4 +1,4 @@
-import { ColumnType, Generated, Insertable, Selectable } from "kysely";
+import { Generated, Insertable, Selectable } from "kysely";
 
 export interface Database {
   logs: LogTable;
@@ -7,7 +7,7 @@ export interface Database {
 export interface LogTable {
   id: Generated<string>;
   message: string;
-  created_at: string;
+  created_at: Date;
 }
 
 export type Log = Selectable<LogTable>;

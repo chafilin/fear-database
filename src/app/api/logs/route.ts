@@ -18,10 +18,7 @@ export async function POST(request: Request): Promise<Response> {
   const log: LogInsert = {
     id: nanoid(),
     message: message,
-    created_at:
-      new Date().toLocaleDateString("ru-RU") +
-      " " +
-      new Date().toLocaleTimeString("ru-RU"),
+    created_at: new Date(),
   };
 
   const resultLog = await newLog(log);

@@ -34,11 +34,21 @@ export const UserLogs = ({ refresh, onRefresh }: Props) => {
     <div className={styles.entries}>
       {userLogs &&
         userLogs.map((log) => (
-          <div className={styles.entry} key={log.created_at}>
-            <div className={styles.time}> {log.created_at} </div>
+          <div className={styles.entry} key={log.id}>
+            <div className={styles.time}> {dateFormater(log.created_at)} </div>
             <div>{log.message}</div>
           </div>
         ))}
     </div>
   );
+};
+
+const dateFormater = (date: string) => {
+  const d = new Date(date);
+  const day = d.getDate();
+  const month = d.getMonth() + 1;
+  const year = d.getFullYear();
+  const hours = d.getHours();
+  const minutes = d.getMinutes();
+  return `${day}.${month}.${year} ${hours}:${minutes}`;
 };

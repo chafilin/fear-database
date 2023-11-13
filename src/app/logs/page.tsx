@@ -6,12 +6,6 @@ import { Header } from "@/components/header";
 import { UserLogs } from "./parts/userLogs";
 import { PostLog } from "./parts/postLog";
 
-const poster = (url: string, body: any) =>
-  fetch(url, {
-    body: JSON.stringify(body),
-    method: "POST",
-  }).then((res) => res.json());
-
 export default function Logs() {
   const [refresh, setRefresh] = React.useState<boolean>(false);
 

@@ -1,0 +1,52 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.block_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.875rem;
+  margin-top: 2.5rem;
+}
+
+.error {
+  color: oklch(var(--error-oklch));
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.header_main {
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.04rem;
+}
+
+.icons {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.icon {
+  display: flex;
+  padding: 0.75rem;
+  align-items: flex-start;
+  gap: 0.5rem;
+  border-radius: 2rem;
+  background: oklch(var(--icon-background-oklch));
+}
+
+.icon > img {
+  width: 1.5rem;
+  height: 1.5rem;
+}

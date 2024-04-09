@@ -1,6 +1,5 @@
-// import { getLogs, postLog } from "@/firebase/log";
 import { newLog, getLogs } from "@/lib/database";
-import { LogInsert, LogTable } from "@/lib/schema";
+import { LogInsert } from "@/lib/schema";
 import { nanoid } from "nanoid";
 
 export async function GET(): Promise<Response> {

@@ -1,4 +1,4 @@
-import styles from "./styles.module.css";
+import styles from "./index.module.css";
 import Image from "next/image";
 import PhoneIcon from "../button-icon/phone-call.svg";
 import MailIcon from "../button-icon/mail.svg";

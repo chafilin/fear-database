@@ -1,8 +1,9 @@
 import React from "react";
-import styles from "./page.module.css";
 import { Header } from "@/components/header";
-import { ConnectionCard } from "./connection-card";
+import { ConnectionCard } from "./components/connection-card";
 import { Root } from "@/components/root";
+import { Column } from "./components/column";
+import { Table } from "./components/table";
 
 export default function Connections() {
   return (
@@ -12,8 +13,8 @@ export default function Connections() {
         backTitle="Бюро Исследований Паранормальных Явлений"
         backHref="/"
       />
-      <div className={styles.table}>
-        <div className={styles.column}>
+      <Table>
+        <Column>
           <ConnectionCard
             isMain={true}
             title="Команда Сибил Беннет"
@@ -28,9 +29,9 @@ export default function Connections() {
             isMain={true}
             isFooter={true}
           />
-        </div>
+        </Column>
 
-        <div className={styles.column}>
+        <Column>
           <ConnectionCard
             isMain={true}
             title="Команда Бетта"
@@ -45,9 +46,9 @@ export default function Connections() {
             isFooter={true}
             isMain={true}
           />
-        </div>
+        </Column>
 
-        <div className={styles.column}>
+        <Column>
           <ConnectionCard
             isMain={true}
             title="Команда Гамма"
@@ -56,8 +57,8 @@ export default function Connections() {
           <ConnectionCard title="К-н Стэн Филдз:" error="Связь потеряна" />
           <ConnectionCard title="Джоуи Картер:" error="Связь потеряна" />
           <ConnectionCard title="Аника Рам:" error="Связь потеряна" />
-        </div>
-      </div>
+        </Column>
+      </Table>
     </Root>
   );
 }

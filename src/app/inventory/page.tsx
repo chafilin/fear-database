@@ -2,10 +2,11 @@ import { Header } from "@/components/header";
 import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
+import { Root } from "@/components/root";
 
 const Inventory = () => {
   return (
-    <div className={styles.root}>
+    <Root>
       <Header
         title="Об оборудовании"
         backTitle="Бюро Исследований Паранормальных Явлений"
@@ -26,7 +27,7 @@ const Inventory = () => {
         <Candle />
         <Lamp />
       </div>
-    </div>
+    </Root>
   );
 };
 

@@ -11,12 +11,12 @@ type Props = {
 };
 export const Header = ({ title, backTitle, backHref }: Props) => {
   return (
-    <div>
+    <>
       <Link href={backHref} className={styles.link}>
         <Image src={LeftArrowIcon} alt="back" />
         {backTitle}
       </Link>
       <h1 className={styles.header}>{title}</h1>
-    </div>
+    </>
   );
 };

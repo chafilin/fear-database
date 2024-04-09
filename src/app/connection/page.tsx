@@ -2,10 +2,11 @@ import React from "react";
 import styles from "./page.module.css";
 import { Header } from "@/components/header";
 import { ConnectionCard } from "./connection-card";
+import { Root } from "@/components/root";
 
 export default function Connections() {
   return (
-    <main className={styles.root}>
+    <Root>
       <Header
         title="Связь с командами"
         backTitle="Бюро Исследований Паранормальных Явлений"
@@ -57,6 +58,6 @@ export default function Connections() {
           <ConnectionCard title="Аника Рам:" error="Связь потеряна" />
         </div>
       </div>
-    </main>
+    </Root>
   );
 }

@@ -4,10 +4,11 @@ import RecordImage from "./record.svg";
 
 import styles from "./page.module.css";
 import Image from "next/image";
+import { Root } from "@/components/root";
 
 const EncyclopediaList = () => {
   return (
-    <div className={styles.root}>
+    <Root>
       <Header
         title="О городе - Джейлбрик"
         backTitle="Бюро Исследований Паранормальных Явлений"
@@ -21,7 +22,7 @@ const EncyclopediaList = () => {
         <Church />
         <CityCenter />
       </div>
-    </div>
+    </Root>
   );
 };
 

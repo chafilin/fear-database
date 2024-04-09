@@ -5,12 +5,13 @@ import Link from "next/link";
 import { Header } from "@/components/header";
 import { UserLogs } from "./parts/userLogs";
 import { PostLog } from "./parts/postLog";
+import { Root } from "@/components/root";
 
 export default function Logs() {
   const [refresh, setRefresh] = React.useState<boolean>(false);
 
   return (
-    <div className={styles.root}>
+    <Root>
       <Header
         title="Логи экспедиции"
         backTitle="Бюро Исследований Паранормальных Явлений"
@@ -124,6 +125,6 @@ export default function Logs() {
           setRefresh(true);
         }}
       />
-    </div>
+    </Root>
   );
 }

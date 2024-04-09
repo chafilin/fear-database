@@ -9,6 +9,7 @@ import Image from "next/image";
 
 import ghosts from "@/data/ghosts.json";
 import allFilters from "@/data/filters.json";
+import { Root } from "@/components/root";
 
 const Back = () => <Link href="/ghosts/search">Назад</Link>;
 
@@ -30,11 +31,11 @@ export default async function Page({
   }
   const humanReadableFilters = getHumanReadableFilters(
     getFiltersWithoutNoOrUnknown(ghost.filters),
-    filters
+    filters,
   );
 
   return (
-    <div className={styles.root}>
+    <Root>
       <Header
         title={ghost.name}
         backTitle="Определение призрака"
@@ -85,7 +86,7 @@ export default async function Page({
           />
         </div>
       )}
-    </div>
+    </Root>
   );
 }
 
@@ -101,7 +102,7 @@ const getFiltersWithoutNoOrUnknown = (filters: Filters) => {
 
 const getHumanReadableFilters = (
   ghost_filtes: Partial<Filters>,
-  all_filters: Question[]
+  all_filters: Question[],
 ): string[] => {
   const result: string[] = [];
   for (const [key, value] of Object.entries(ghost_filtes)) {
@@ -109,7 +110,7 @@ const getHumanReadableFilters = (
     if (filter !== undefined) {
       if (filter.type === "radio") {
         const variant = filter.variants.find(
-          (variant) => variant.value === value
+          (variant) => variant.value === value,
         );
         if (variant !== undefined) {
           result.push(filter.text + ": " + variant.text);

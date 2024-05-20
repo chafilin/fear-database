@@ -12,11 +12,11 @@
     "@vercel/postgres": "^0.5.1",
     "@vercel/postgres-kysely": "^0.6.0",
     "@vercel/speed-insights": "^1.0.10",
-    "nanoid": "^5.0.3",
+    "nanoid": "^5.0.7",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "swr": "^2.2.4"
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@types/node": "latest",

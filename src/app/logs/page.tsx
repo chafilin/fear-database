@@ -22,26 +22,21 @@ export default function Logs() {
         <div className={styles.entries}>
           <div className={styles.date}> 13 июля </div>
 
-          <div className={styles.entry}>
-            <div className={styles.time}>1. 9:00</div>
+          <LogEntry time="9:00">
             Въехали в город. <br />
             Состав команды: Капитан Сибил Беннет, Доктор Сал Ангер, Гарри
             Форрестер
-          </div>
-          <div className={styles.entry}>
-            <div className={styles.time}>2. 9:15</div>
+          </LogEntry>
+          <LogEntry time="9:15">
             Связь с командами Бетта и Гамма, Орегоном и ЦО была потеряна через 3
-            минуты после въезда в город.
-            <br />
+            минуты после въезда в город. <br />
             По нашим наблюдениям, погода в городе сейчас осенняя, несмотря на
             то, что сейчас 13 июля. Мы связываем это с тем, что аномалия
             случилась осенью (31 октября 2007 г). Все устройства показывают
             правильное время: 13 июля 2023 года
-          </div>
-          <div className={styles.entry}>
-            <div className={styles.time}>3. 15:00</div>
-            Настройка датчиков закончена.
-            <br />
+          </LogEntry>
+          <LogEntry time="15:00">
+            Настройка датчиков закончена. <br />
             Мы локализовали самые активные источники паранормального шума:{" "}
             <Link className={styles.link} href="/encyclopedia?#school">
               школа
@@ -59,17 +54,15 @@ export default function Logs() {
               ратуша
             </Link>
             . Ратуша имеет наиболее высокую активность. Отправляемся к ратуше.
-          </div>
-          <div className={styles.entry}>
-            <div className={styles.time}>4. 17:00</div>
+          </LogEntry>
+          <LogEntry time="17:00">
             Саму ратушу обнаружить не удалось. На месте, где она должна быть,
             наша техника начала сбоить, 2 датчика ЭМП сломались при приближении
             к центру магнитного поля. Часы стали спешить, чем ближе к центру,
             тем сильнее. Иногда время на устройствах показывало 31 октября, что
             подтверждает наши предположения.
-          </div>
-          <div className={styles.entry}>
-            <div className={styles.time}>5. 17:30</div>
+          </LogEntry>
+          <LogEntry time="17:30">
             Судя по полученным замерам, это место как воронка: всасывает в себя
             энергию. <br />
             Похоже, школа, радиостанция и больница каким-то образом подпитывают
@@ -86,18 +79,16 @@ export default function Logs() {
                 куда уходит эта энергия — остаётся открытым.
               </p>
             </blockquote>
-          </div>
-          <div className={styles.entry}>
-            <div className={styles.time}>6. 18:00</div>
+          </LogEntry>
+
+          <LogEntry time="18:00">
             После ратуши все чувствуем сильное утомление. Из-за этого и из-за
             того, что уже темно, решили переждать ночь в фургоне. Завтра с утра
             планируем отправиться в школу.
-          </div>
+          </LogEntry>
 
           <div className={styles.date}> 14 июля </div>
-
-          <div className={styles.entry}>
-            <div className={styles.time}> 1. 12:00 </div>
+          <LogEntry time="12:00">
             <blockquote className={styles.note}>
               <p>
                 <i>Примечания Гарри Форрестера:</i>
@@ -109,7 +100,7 @@ export default function Logs() {
             Мы собирались начать проверку гипотезы со школы, но обнаружили
             слабые импульсы из жилого дома (42.654563, -121.973873).
             Направляемся туда.
-          </div>
+          </LogEntry>
         </div>
 
         <UserLogs
@@ -128,3 +119,14 @@ export default function Logs() {
     </Root>
   );
 }
+
+type LogEntryProps = {
+  time: string;
+  children: React.ReactNode;
+};
+const LogEntry: React.FC<LogEntryProps> = ({ time, children }) => (
+  <div className={styles.entry}>
+    <div className={styles.time}>{time}</div>
+    {children}
+  </div>
+);

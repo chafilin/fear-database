@@ -12,6 +12,7 @@
     "@vercel/postgres": "^0.5.1",
     "@vercel/postgres-kysely": "^0.6.0",
     "@vercel/speed-insights": "^1.0.10",
+    "kysely": "^0.27.3",
     "nanoid": "^5.0.7",
     "next": "latest",
     "react": "latest",

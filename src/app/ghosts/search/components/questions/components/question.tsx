@@ -1,4 +1,9 @@
-import { Answer, CheckboxQuestion, Question, RadioQuestion } from "@/types";
+import {
+  Answer,
+  CheckboxQuestionType,
+  Question,
+  RadioQuestionType,
+} from "@/types";
 import React from "react";
 import { Checkbox } from "./checkbox";
 import styles from "../index.module.css";
@@ -10,13 +15,13 @@ type QuestionProps = {
 };
 
 type RadioQuestionProps = {
-  question: RadioQuestion;
+  question: RadioQuestionType;
   handleChange: (answer: Answer) => void;
   answer: Answer | undefined;
 };
 
 type CheckboxQuestionProps = {
-  question: CheckboxQuestion;
+  question: CheckboxQuestionType;
   handleChange: (answer: Answer) => void;
   answer: Answer | undefined;
 };
@@ -74,8 +79,8 @@ const CheckboxQuestion = ({
     answer && answer.value === "yes"
       ? true
       : answer && answer.value === "no"
-      ? null
-      : false;
+        ? null
+        : false;
 
   return (
     <div className={styles.question_checkbox}>

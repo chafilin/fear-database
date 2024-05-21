@@ -22,15 +22,11 @@ export const ConnectionCard: React.FC<ConnectionCardProps> = ({
         {isMain ? <MainHeader title={title} /> : <Header title={title} />}
         <div className={styles.error}>{error}</div>
       </div>
-      <div className={styles.icons}>
-        <div className={styles.icon}>
-          <Image src={PhoneIcon} alt="phone" />
-        </div>
+      <Icons>
+        <Icon src={PhoneIcon} alt="phone" />
 
-        <div className={styles.icon}>
-          <Image src={MailIcon} alt="e-mail" />
-        </div>
-      </div>
+        <Icon src={MailIcon} alt="e-mail" />
+      </Icons>
     </Layout>
   );
 };
@@ -57,4 +53,25 @@ const Layout: React.FC<LayoutProps> = ({ children, isFooter }) => {
   ) : (
     <div className={styles.block}>{children}</div>
   );
+};
+
+type IconProps = {
+  src: string;
+  alt: string;
+};
+
+const Icon: React.FC<IconProps> = ({ src, alt }) => {
+  return (
+    <div className={styles.icon}>
+      <Image src={src} alt={alt} />
+    </div>
+  );
+};
+
+type IconsProps = {
+  children: React.ReactNode;
+};
+
+const Icons: React.FC<IconsProps> = ({ children }) => {
+  return <div className={styles.icons}>{children}</div>;
 };

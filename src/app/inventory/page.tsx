@@ -31,335 +31,278 @@ const Inventory = () => {
   );
 };
 
-const Emp = () => {
-  return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>Детектор ЭМП</h2>
-        <div>
-          Детектор ЭМП — это оборудование для измерения силы электромагнитных
-          полей в близлежащей среде. Используется для обнаружения признаков ЭМП
-        </div>
-        <div>
-          5-го уровня. При обнаружении ЭМП 5-го уровня загораются все пять
-          индикаторов и издается очень высокий тональный сигнал.
-        </div>
-      </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/emp.png"
-          width={200}
-          height={200}
-          alt="Детектор ЭМП"
-        />
-      </div>
+type ItemProps = {
+  image: {
+    src: string;
+    alt: string;
+  };
+  title: string;
+  children: React.ReactNode;
+};
+
+const Item = ({ image, title, children }: ItemProps) => (
+  <div className={styles.block}>
+    <div className={styles.content}>
+      <h2 className={styles.block_header}>{title}</h2>
+      {children}
     </div>
+    <div className={styles.image}>
+      <Image src={image.src} width={200} height={200} alt={image.alt} />
+    </div>
+  </div>
+);
+
+const Emp = () => {
+  const image = {
+    src: "/assets/inventory/emp.png",
+    alt: "Детектор ЭМП",
+  };
+  const title = "Детектор ЭМП";
+  return (
+    <Item image={image} title={title}>
+      <div>
+        Детектор ЭМП — это оборудование для измерения силы электромагнитных
+        полей в близлежащей среде. Используется для обнаружения признаков ЭМП
+      </div>
+      <div>
+        5-го уровня. При обнаружении ЭМП 5-го уровня загораются все пять
+        индикаторов и издается очень высокий тональный сигнал.
+      </div>
+    </Item>
   );
 };
 
 const Termometer = () => {
+  const image = {
+    src: "/assets/inventory/temperature.png",
+    alt: "Термометр",
+  };
+  const title = "Термометр";
   return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>Термометр</h2>
-        <div>
-          Термометр — это оборудование для измерения температуры окружающей
-          среды. Включите и нажмите на кнопку измерения, через несколько секунд
-          термометр покажет показания в градусах Цельсия (°C). Используется для
-          обнаружения минусовой температуры.
-        </div>
+    <Item image={image} title={title}>
+      <div>
+        Термометр — это оборудование для измерения температуры окружающей среды.
+        Включите и нажмите на кнопку измерения, через несколько секунд термометр
+        покажет показания в градусах Цельсия (°C). Используется для обнаружения
+        минусовой температуры.
       </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/temperature.png"
-          width={200}
-          height={200}
-          alt="Термометр"
-        />
-      </div>
-    </div>
+    </Item>
   );
 };
 
 const Uf = () => {
+  const image = {
+    src: "/assets/inventory/uf.png",
+    alt: "УФ-фонарь",
+  };
+  const title = "УФ-фонарь";
   return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>УФ-фонарь</h2>
-        <div>
-          Фонарь, который излучает ультрафиолетовый свет. Используется для
-          обнаружения следов ультрафиолета, таких как отпечатки пальцев, следы,
-          эктоплазма.
-        </div>
+    <Item image={image} title={title}>
+      <div>
+        Фонарь, который излучает ультрафиолетовый свет. Используется для
+        обнаружения следов ультрафиолета, таких как отпечатки пальцев, следы,
+        эктоплазма.
       </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/uf.png"
-          width={200}
-          height={200}
-          alt="УФ-фонарь"
-        />
-      </div>
-    </div>
+    </Item>
   );
 };
 
 const Camera = () => {
+  const image = {
+    src: "/assets/inventory/camera.png",
+    alt: "Камера с режимом ночной съёмки",
+  };
+  const title = "Камера с режимом ночной съёмки";
   return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>Камера с режимом ночной съёмки</h2>
-        <div>
-          Камера — это устройство, с помощью которого можно делать фотографии и
-          видеозаписи. Некоторых призраков можно увидеть только через камеру.
-          Также с помощью камеры можно определить, что перед вами иллюзия, если
-          видимый вами предмет или существо невидимо на камере.
-        </div>
-        <div>
-          Имеет режим ночной съёмки. Изображение с камеры можно вывести на экран
-          в фургоне.
-        </div>
+    <Item image={image} title={title}>
+      <div>
+        Камера — это устройство, с помощью которого можно делать фотографии и
+        видеозаписи. Некоторых призраков можно увидеть только через камеру.
+        Также с помощью камеры можно определить, что перед вами иллюзия, если
+        видимый вами предмет или существо невидимо на камере.
       </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/camera.png"
-          width={200}
-          height={200}
-          alt="Камера с режимом ночной съёмки"
-        />
+      <div>
+        Имеет режим ночной съёмки. Изображение с камеры можно вывести на экран в
+        фургоне.
       </div>
-    </div>
+    </Item>
   );
 };
 
 const SpiritBox = () => {
+  const image = {
+    src: "/assets/inventory/radio.png",
+    alt: "Спирит Бокс",
+  };
+  const title = "Спирит Бокс";
   return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>Спирит Бокс</h2>
-        <div>
-          Спирит Бокс — это часть оборудования, используемого для поиска улик.
-          Он создает белый шум, постоянно переключая различные радиочастоты, что
-          позволяет некоторым призракам общаться с вами
-        </div>
+    <Item image={image} title={title}>
+      <div>
+        Спирит Бокс — это часть оборудования, используемого для поиска улик. Он
+        создает белый шум, постоянно переключая различные радиочастоты, что
+        позволяет некоторым призракам общаться с вами
       </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/radio.png"
-          width={200}
-          height={200}
-          alt="Спирит Бокс"
-        />
-      </div>
-    </div>
+    </Item>
   );
 };
 
 const SoundSensor = () => {
+  const image = {
+    src: "/assets/inventory/sound.png",
+    alt: "Датчик звука",
+  };
+  const title = "Датчик звука";
   return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>Датчик звука</h2>
-        <div>
-          Датчик звука обнаруживает звуки на большой территории вокруг себя,
-          позволяя игроку отслеживать потенциальную активность призраков. Датчик
-          передаёт все звуки в наушники. Есть режим записи звуков.
-        </div>
-        <div>
-          Датчик звука можно разместить на земле или другой плоской поверхности
-          или держать в руках.
-        </div>
-        <div>
-          Можно синхронизировать с фургоном: выводить звуки в колонки фургона,
-          переносить записи в ПК.
-        </div>
+    <Item image={image} title={title}>
+      <div>
+        Датчик звука обнаруживает звуки на большой территории вокруг себя,
+        позволяя игроку отслеживать потенциальную активность призраков. Датчик
+        передаёт все звуки в наушники. Есть режим записи звуков.
       </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/sound.png"
-          width={200}
-          height={200}
-          alt="Датчик звука"
-        />
+      <div>
+        Датчик звука можно разместить на земле или другой плоской поверхности
+        или держать в руках.
       </div>
-    </div>
+      <div>
+        Можно синхронизировать с фургоном: выводить звуки в колонки фургона,
+        переносить записи в ПК.
+      </div>
+    </Item>
   );
 };
 
 const MovementSensor = () => {
+  const image = {
+    src: "/assets/inventory/move.png",
+    alt: "Датчик движения",
+  };
+  const title = "Датчик движения";
   return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>Датчик движения</h2>
-        <div>
-          Датчик движения — это оборудование, которое может помочь отслеживать
-          движение призрака. Датчик движения можно разместить на стене или на
-          полу. При установке датчик излучает красный лазерный луч, указывая на
-          эффективное расстояние обнаружения. Когда кто или что-либо проходит
-          через лазерный луч, датчик движения излучает яркий свет в течение 2
-          секунд и издаёт звуковой сигнал.
-        </div>
-        <div>
-          Можно синхронизировать с фургоном и выводить результаты датчиков на
-          экран в фургоне.
-        </div>
+    <Item image={image} title={title}>
+      <div>
+        Датчик движения — это оборудование, которое может помочь отслеживать
+        движение призрака. Датчик движения можно разместить на стене или на
+        полу. При установке датчик излучает красный лазерный луч, указывая на
+        эффективное расстояние обнаружения. Когда кто или что-либо проходит
+        через лазерный луч, датчик движения излучает яркий свет в течение 2
+        секунд и издаёт звуковой сигнал.
       </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/move.png"
-          width={200}
-          height={200}
-          alt="Датчик движения"
-        />
+      <div>
+        Можно синхронизировать с фургоном и выводить результаты датчиков на
+        экран в фургоне.
       </div>
-    </div>
+    </Item>
   );
 };
 
 const Salt = () => {
+  const image = {
+    src: "/assets/inventory/salt.png",
+    alt: "Соль",
+  };
+  const title = "Соль";
   return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>Соль</h2>
-        <div>
-          Гималайская соль, собранная монашеским орденом. Прямой контакт с солью
-          способен напугать или разозлить призрака. Некоторые призраки не
-          реагируют на соль. Используется в некоторых ритуалах по изгнанию
-          призрака.
-        </div>
-        <div>
-          С помощью горстки соли можно определить, наступает ли призрак на песок
-          или соль.
-        </div>
-        <div>Более эффективна, чем обычная соль.</div>
+    <Item image={image} title={title}>
+      <div>
+        Гималайская соль, собранная монашеским орденом. Прямой контакт с солью
+        способен напугать или разозлить призрака. Некоторые призраки не
+        реагируют на соль. Используется в некоторых ритуалах по изгнанию
+        призрака.
       </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/salt.png"
-          width={200}
-          height={200}
-          alt="Соль"
-        />
+      <div>
+        С помощью горстки соли можно определить, наступает ли призрак на песок
+        или соль.
       </div>
-    </div>
+      <div>Более эффективна, чем обычная соль.</div>
+    </Item>
   );
 };
 
 const Crucifix = () => {
+  const image = {
+    src: "/assets/inventory/crucifix.png",
+    alt: "Распятие",
+  };
+  const title = "Распятие";
   return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>Распятие</h2>
-        <div>
-          Освящённый крест из серебра. Распятие способно напугать или разозлить
-          призрака. Некоторые призраки не реагируют на крест. Используется в
-          некоторых ритуалах по изгнанию призрака.
-        </div>
-        <div>Наиболее эффективно в руках набожного человека.</div>
+    <Item image={image} title={title}>
+      <div>
+        Освящённый крест из серебра. Распятие способно напугать или разозлить
+        призрака. Некоторые призраки не реагируют на крест. Используется в
+        некоторых ритуалах по изгнанию призрака.
       </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/crucifix.png"
-          width={200}
-          height={200}
-          alt="Распятие"
-        />
-      </div>
-    </div>
+      <div>Наиболее эффективно в руках набожного человека.</div>
+    </Item>
   );
 };
 
 const HolyWater = () => {
+  const image = {
+    src: "/assets/inventory/water.png",
+    alt: "Святая вода",
+  };
+  const title = "Святая вода";
   return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>Святая вода</h2>
-        <div>
-          Святая вода, освящённая первосвященниками. Способна напугать или
-          разозлить призрака. Некоторые призраки не реагируют на святую воду.
-          Используется в некоторых ритуалах по изгнанию призрака.
-        </div>
-        <div>Наиболее эффективна в руках набожного человека.</div>
+    <Item image={image} title={title}>
+      <div>
+        Святая вода, освящённая первосвященниками. Способна напугать или
+        разозлить призрака. Некоторые призраки не реагируют на святую воду.
+        Используется в некоторых ритуалах по изгнанию призрака.
       </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/water.png"
-          width={200}
-          height={200}
-          alt="Святая вода"
-        />
-      </div>
-    </div>
+      <div>Наиболее эффективна в руках набожного человека.</div>
+    </Item>
   );
 };
 
 const Incense = () => {
+  const image = {
+    src: "/assets/inventory/incense.png",
+    alt: "Благовония",
+  };
+  const title = "Благовония";
   return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>Благовония</h2>
-        <div>
-          Белый шалфей, имеет сладкий горьковатый аромат. Благовония способны
-          напугать или разозлить призрака. Некоторые призраки не реагируют на
-          соль. Используется в некоторых ритуалах по изгнанию призрака.
-        </div>
-        <div>
-          Также эффективны благовония из вербены, гардении, красной гвоздики,
-          жасмина, кедра, кипариса и ладана.
-        </div>
+    <Item image={image} title={title}>
+      <div>
+        Белый шалфей, имеет сладкий горьковатый аромат. Благовония способны
+        напугать или разозлить призрака. Некоторые призраки не реагируют на
+        соль. Используется в некоторых ритуалах по изгнанию призрака.
       </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/incense.png"
-          width={200}
-          height={200}
-          alt="Благовония"
-        />
+      <div>
+        Также эффективны благовония из вербены, гардении, красной гвоздики,
+        жасмина, кедра, кипариса и ладана.
       </div>
-    </div>
+    </Item>
   );
 };
 
 const Candle = () => {
+  const image = {
+    src: "/assets/inventory/candle.png",
+    alt: "Свеча",
+  };
+  const title = "Свеча";
   return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>Свеча</h2>
-        <div>Обычная свеча: можно заменить любой другой.</div>
-        <div>
-          В очень редких случаях способна напугать или разозлить призрака.
-          Большинство призраков без труда могут задуть одну свечу. Используется
-          в некоторых ритуалах по изгнанию призрака.
-        </div>
+    <Item image={image} title={title}>
+      <div>Обычная свеча: можно заменить любой другой.</div>
+      <div>
+        В очень редких случаях способна напугать или разозлить призрака.
+        Большинство призраков без труда могут задуть одну свечу. Используется в
+        некоторых ритуалах по изгнанию призрака.
       </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/candle.png"
-          width={200}
-          height={200}
-          alt="Свеча"
-        />
-      </div>
-    </div>
+    </Item>
   );
 };
 
 const Lamp = () => {
+  const image = {
+    src: "/assets/inventory/lamp.png",
+    alt: "Фонарик",
+  };
+  const title = "Фонарик";
   return (
-    <div className={styles.block}>
-      <div className={styles.content}>
-        <h2 className={styles.block_header}>Фонарик</h2>
-        <div>Обычный фонарик, ничего больше, ничего меньше.</div>
-      </div>
-      <div className={styles.image}>
-        <Image
-          src="/assets/inventory/lamp.png"
-          width={200}
-          height={200}
-          alt="Фонарик"
-        />
-      </div>
-    </div>
+    <Item image={image} title={title}>
+      <div>Обычный фонарик, ничего больше, ничего меньше.</div>
+    </Item>
   );
 };
 

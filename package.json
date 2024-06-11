@@ -11,8 +11,8 @@
   "dependencies": {
     "@vercel/postgres": "^0.5.1",
     "@vercel/postgres-kysely": "^0.6.0",
-    "@vercel/speed-insights": "^1.0.10",
-    "kysely": "0.26",
+    "@vercel/speed-insights": "^1.0.11",
+    "kysely": "~0.26.3",
     "nanoid": "^5.0.7",
     "next": "latest",
     "react": "latest",
@@ -26,5 +26,6 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "latest",
     "typescript": "latest"
-  }
+  },
+  "packageManager": "pnpm@9.3.0"
 }

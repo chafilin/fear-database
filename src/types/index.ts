@@ -8,7 +8,7 @@ type RadioVariant = {
   text: string;
 };
 
-export type RadioQuestion = {
+export type RadioQuestionType = {
   id: FilterTypes;
   text: string;
   variants: RadioVariant[];
@@ -16,14 +16,14 @@ export type RadioQuestion = {
   priority: number;
 };
 
-export type CheckboxQuestion = {
+export type CheckboxQuestionType = {
   id: FilterTypes;
   text: string;
   type: "checkbox";
   priority: number;
 };
 
-export type Question = RadioQuestion | CheckboxQuestion;
+export type Question = RadioQuestionType | CheckboxQuestionType;
 
 export type FilterTypes =
   | "shows"

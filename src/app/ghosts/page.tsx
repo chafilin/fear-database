@@ -2,10 +2,11 @@ import { Header } from "@/components/header";
 import Link from "next/link";
 import React from "react";
 import styles from "./page.module.css";
+import { Root } from "@/components/root";
 
 const Ghosts = () => {
   return (
-    <div className={styles.root}>
+    <Root>
       <Header
         title="Призраки"
         backTitle="Бюро Исследований Паранормальных Явлений"
@@ -77,7 +78,7 @@ const Ghosts = () => {
         скорректировать имеющуюся информацию, пожалуйста, обратитесь к своему
         руководителю или в центральный офис.
       </div>
-    </div>
+    </Root>
   );
 };
 

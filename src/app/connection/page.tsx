@@ -1,248 +1,64 @@
-import Link from "next/link";
-import Image from "next/image";
 import React from "react";
-import styles from "./page.module.css";
-import MailIcon from "./button-icon/mail.svg";
-import PhoneIcon from "./button-icon/phone-call.svg";
 import { Header } from "@/components/header";
+import { ConnectionCard } from "./components/connection-card";
+import { Root } from "@/components/root";
+import { Column } from "./components/column";
+import { Table } from "./components/table";
 
 export default function Connections() {
   return (
-    <main className={styles.root}>
+    <Root>
       <Header
         title="Связь с командами"
         backTitle="Бюро Исследований Паранормальных Явлений"
         backHref="/"
       />
-      <div className={styles.table}>
-        <div className={styles.column}>
-          <div className={styles.block}>
-            <div className={styles.block_header}>
-              <div className={styles.block_header_main}>
-                Команда Сибил Беннет:
-              </div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
+      <Table>
+        <Column>
+          <ConnectionCard
+            isMain={true}
+            title="Команда Сибил Беннет"
+            error="Связь потеряна"
+          />
+          <ConnectionCard title="К-н Сибил Беннет:" error="Связь потеряна" />
+          <ConnectionCard title="Д-р Сал Ангер:" error="Связь потеряна" />
+          <ConnectionCard title="Гарри Форрестер:" error="Связь потеряна" />
+          <ConnectionCard
+            title="Орегон:"
+            error="Связь потеряна"
+            isMain={true}
+            isFooter={true}
+          />
+        </Column>
 
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
+        <Column>
+          <ConnectionCard
+            isMain={true}
+            title="Команда Бетта"
+            error="Связь потеряна"
+          />
+          <ConnectionCard title="К-н Саша Клейн:" error="Связь потеряна" />
+          <ConnectionCard title="Д-р Виктор Риверс:" error="Связь потеряна" />
+          <ConnectionCard title="Буйвол:" error="Связь потеряна" />
+          <ConnectionCard
+            title="Центральный офис:"
+            error="Связь потеряна"
+            isFooter={true}
+            isMain={true}
+          />
+        </Column>
 
-          <div className={styles.block}>
-            <div className={styles.block_header}>
-              <div>К-н Сибил Беннет:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-          <div className={styles.block}>
-            <div className={styles.block_header}>
-              <div>Д-р Сал Ангер:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.block}>
-            <div className={styles.block_header}>
-              <div>Гарри Форрестер:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.block_footer}>
-            <div className={styles.block_header}>
-              <div className={styles.block_header_main}>Орегон:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.column}>
-          <div className={styles.block}>
-            <div className={styles.block_header}>
-              <div className={styles.block_header_main}>Команда Бетта:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.block}>
-            <div className={styles.block_header}>
-              <div>К-н Саша Клейн:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-          <div className={styles.block}>
-            <div className={styles.block_header}>
-              <div>Д-р Виктор Риверс:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.block}>
-            <div className={styles.block_header}>
-              <div>Буйвол:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.block_footer}>
-            <div className={styles.block_header}>
-              <div className={styles.block_header_main}>Центральный офис:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.column}>
-          <div className={styles.block}>
-            <div className={styles.block_header}>
-              <div className={styles.block_header_main}>Команда Гамма:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.block}>
-            <div className={styles.block_header}>
-              <div>К-н Стэн Филдз:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-          <div className={styles.block}>
-            <div className={styles.block_header}>
-              <div>Джоуи Картер:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.block}>
-            <div className={styles.block_header}>
-              <div>Аника Рам:</div>
-              <div className={styles.error}>Связь потеряна</div>
-            </div>
-            <div className={styles.icons}>
-              <div className={styles.icon}>
-                <Image src={PhoneIcon} alt="phone" />
-              </div>
-
-              <div className={styles.icon}>
-                <Image src={MailIcon} alt="e-mail" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+        <Column>
+          <ConnectionCard
+            isMain={true}
+            title="Команда Гамма"
+            error="Связь потеряна"
+          />
+          <ConnectionCard title="К-н Стэн Филдз:" error="Связь потеряна" />
+          <ConnectionCard title="Джоуи Картер:" error="Связь потеряна" />
+          <ConnectionCard title="Аника Рам:" error="Связь потеряна" />
+        </Column>
+      </Table>
+    </Root>
   );
 }

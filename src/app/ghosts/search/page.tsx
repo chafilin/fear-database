@@ -7,12 +7,13 @@ import Link from "next/link";
 import { Header } from "@/components/header";
 import allGhosts from "@/data/ghosts.json";
 import allFilters from "@/data/filters.json";
+import { Root } from "@/components/root";
 
 const GhostsSearch = () => {
   const [filtered, setFiltered] = React.useState<Ghost[]>(allGhosts as Ghost[]);
   const ghosts = allGhosts as Ghost[];
   const filters = allFilters.sort(
-    (a, b) => a.priority - b.priority
+    (a, b) => a.priority - b.priority,
   ) as Question[];
 
   const handleAnswers = (answers: Answer[]) => {
@@ -20,14 +21,14 @@ const GhostsSearch = () => {
       ghosts.filter((item) =>
         answers.every(
           (answer) =>
-            item.filters && item.filters[answer.filter_id] === answer.value
-        )
-      )
+            item.filters && item.filters[answer.filter_id] === answer.value,
+        ),
+      ),
     );
   };
 
   return (
-    <div className={styles.root}>
+    <Root>
       <Header
         title="Определить призрака"
         backTitle="Бюро Исследований Паранормальных Явлений"
@@ -46,7 +47,7 @@ const GhostsSearch = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Root>
   );
 };
 

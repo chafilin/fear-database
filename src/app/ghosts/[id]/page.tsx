@@ -4,8 +4,6 @@ import { Header } from "@/components/header";
 import styles from "./page.module.css";
 import { FilterTypes, Filters, Ghost, Question } from "@/types";
 import Image from "next/image";
-// import { getGhost } from "@/firebase/ghosts";
-// import { getFilters } from "@/firebase/filters";
 
 import ghosts from "@/data/ghosts.json";
 import allFilters from "@/data/filters.json";
@@ -13,11 +11,11 @@ import { Root } from "@/components/root";
 
 const Back = () => <Link href="/ghosts/search">Назад</Link>;
 
-export default async function Page({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
+export default async function Page(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
+
+  const { id } = params;
+
   const ghost = ghosts.find((ghost) => ghost.id === id) as Ghost;
   const filters = allFilters as Question[];
 
@@ -31,7 +29,7 @@ export default async function Page({
   }
   const humanReadableFilters = getHumanReadableFilters(
     getFiltersWithoutNoOrUnknown(ghost.filters),
-    filters,
+    filters
   );
 
   return (
@@ -102,7 +100,7 @@ const getFiltersWithoutNoOrUnknown = (filters: Filters) => {
 
 const getHumanReadableFilters = (
   ghost_filtes: Partial<Filters>,
-  all_filters: Question[],
+  all_filters: Question[]
 ): string[] => {
   const result: string[] = [];
   for (const [key, value] of Object.entries(ghost_filtes)) {
@@ -110,7 +108,7 @@ const getHumanReadableFilters = (
     if (filter !== undefined) {
       if (filter.type === "radio") {
         const variant = filter.variants.find(
-          (variant) => variant.value === value,
+          (variant) => variant.value === value
         );
         if (variant !== undefined) {
           result.push(filter.text + ": " + variant.text);

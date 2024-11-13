@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -14,18 +14,24 @@
     "@vercel/speed-insights": "^1.0.11",
     "kysely": "~0.26.3",
     "nanoid": "^5.0.7",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
+    "next": "15.0.3",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
     "swr": "^2.2.5"
   },
   "devDependencies": {
     "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "eslint": "^8.57.0",
-    "eslint-config-next": "latest",
+    "eslint-config-next": "15.0.3",
     "typescript": "latest"
   },
-  "packageManager": "pnpm@9.3.0"
+  "packageManager": "pnpm@9.3.0",
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
+  }
 }
